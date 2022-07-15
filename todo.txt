@@ -1,0 +1,14 @@
+add actual game listings
+categories, add category headers
+add logos, update logo
+
+reorder, pin
+save/load order locally
+add item (w/ emoji icon)
+
+instructions
+settings:
+    dark mode
+    locked mode
+    feedback contact
+    support
