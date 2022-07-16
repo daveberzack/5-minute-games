@@ -21,7 +21,7 @@ const games = [
         description: "DESC"
     },
     {
-        id: 2,
+        id: 3,
         category:2,
         name: "Letter Boxed",
         url:"https://www.nytimes.com/puzzles/letter-boxed",
@@ -30,7 +30,7 @@ const games = [
         description: "DESC"
     },
     {
-        id: 2,
+        id: 4,
         category:2,
         name: "Vertex",
         url:"https://www.nytimes.com/puzzles/vertex",
@@ -39,7 +39,7 @@ const games = [
         description: "DESC"
     },
     {
-        id: 2,
+        id: 5,
         category:2,
         name: "Tiles",
         url:"https://www.nytimes.com/puzzles/tiles",
@@ -48,7 +48,7 @@ const games = [
         description: "DESC"
     },
     {
-        id: 3,
+        id: 6,
         category:2,
         name: "Sudoku: Easy",
         url:"https://www.nytimes.com/puzzles/sudoku/easy",
@@ -57,7 +57,7 @@ const games = [
         description: "DESC"
     },
     {
-        id: 4,
+        id: 7,
         category:2,
         name: "Sudoku: Medium",
         url:"https://www.nytimes.com/puzzles/sudoku/medium",
@@ -66,7 +66,7 @@ const games = [
         description: "DESC"
     },
     {
-        id: 4,
+        id: 8,
         category:2,
         name: "Sudoku: Hard",
         url:"https://www.nytimes.com/puzzles/sudoku/hard",
@@ -78,16 +78,16 @@ const games = [
 /////////////// Wordle Spin Offs ///////////////////////
 
     {
-        id: 5,
+        id: 9,
         category:3,
         name: "Dordle",
-        url:"https://dordle.io/",
+        url:"https://dordlewordle.com/",
         image:"dordle.png",
         caption: "Wordle, but with two words",
         description: "DESC"
     },
     {
-        id: "6",
+        id: 10,
         category:3,
         name: "Quordle",
         url:"https://www.quordle.com/",
@@ -96,7 +96,7 @@ const games = [
         description: "DESC"
     },
     {
-        id: "7",
+        id: 11,
         category:3,
         name: "Crosswordle",
         url:"https://crosswordle.vercel.app/",
@@ -105,7 +105,7 @@ const games = [
         description: "DESC"
     },
     {
-        id: "8",
+        id: 12,
         category:3,
         name: "Absurdle",
         url:"https://qntm.org/files/absurdle/absurdle.html",
@@ -114,7 +114,7 @@ const games = [
         description: "DESC"
     },
     {
-        id: "2",
+        id: 13,
         category:3,
         name: "Squareword",
         url:"https://squareword.org/",
@@ -123,7 +123,7 @@ const games = [
         description: "DESC"
     },
     {
-        id: "9",
+        id: 14,
         category:3,
         name: "Xordle",
         url:"https://xordle.xyz/",
@@ -132,7 +132,7 @@ const games = [
         description: "DESC"
     },
     {
-        id: "12",
+        id: 15,
         category:3,
         name: "IYKNK",
         url:"https://www.iykyk.com/",
@@ -140,12 +140,20 @@ const games = [
         caption: "Guess the slang acronym",
         description: "DESC"
     },
+    {
+        id: 29,
+        category:3,
+        name: "Squirdle",
+        url:"https://squirdle.fireblend.com/",
+        image:"squirdle.png",
+        caption: "Guess a pokemon by its traits",
+        description: "DESC"
+    },
 
-    
 /////////////// Other Guessing Games ///////////////////////
 
     {
-        id: "13",
+        id: 16,
         category:4,
         name: "Heardle",
         url:"https://www.spotify.com/heardle/",
@@ -154,7 +162,7 @@ const games = [
         description: "DESC"
     },
     {
-        id: "14",
+        id: 17,
         category:4,
         name: "Artle",
         url:"https://www.nga.gov/artle.html",
@@ -163,16 +171,16 @@ const games = [
         description: "DESC"
     },
     {
-        id: "15",
+        id: 18,
         category:4,
         name: "Worldle",
         url:"https://worldle.teuteuf.fr/",
-        image:"",
+        image:"worldle.png",
         caption: "Guess a country by distance",
         description: "DESC"
     },
     {
-        id: "16",
+        id: 19,
         category:4,
         name: "Framed",
         url:"https://framed.wtf/",
@@ -181,7 +189,7 @@ const games = [
         description: "DESC"
     },
     {
-        id: "17",
+        id: 20,
         category:4,
         name: "Name That Ride",
         url:"https://www.namethatride.com/",
@@ -194,7 +202,7 @@ const games = [
 /////////////// Strategy & Puzzle Games ///////////////////////
 
     {
-        id: "10",
+        id: 21,
         category:5,
         name: "Entanglement",
         url:"http://entanglement.gopherwoodstudios.com/en-US-index.html",
@@ -203,7 +211,7 @@ const games = [
         description: "DESC"
     },
     {
-        id: "17",
+        id: 22,
         category:5,
         name: "Color Pipes",
         url:"https://www.cbc.ca/kids/games/play/color-pipes",
@@ -216,7 +224,16 @@ const games = [
 /////////////// Other Games ///////////////////////
 
     {
-        id: "11",
+        id: 23,
+        category:6,
+        name: "Waffle",
+        url:"https://wafflegame.net/",
+        image:"waffle.png",
+        caption: "Swap letters to form words",
+        description: "DESC"
+    },
+    {
+        id: 24,
         category:6,
         name: "Gridland",
         url:"http://gridland.doublespeakgames.com/",
@@ -225,16 +242,7 @@ const games = [
         description: "DESC"
     },
     {
-        id: "17",
-        category:6,
-        name: "The Wiki Game",
-        url:"https://www.thewikigame.com/group",
-        image:"wikigame.png",
-        caption: "Race to a Wikipedia page",
-        description: "DESC"
-    },
-    {
-        id: "17",
+        id: 25,
         category:6,
         name: "Quick Draw",
         url:"https://quickdraw.withgoogle.com/",
@@ -243,7 +251,16 @@ const games = [
         description: "DESC"
     },
     {
-        id: "17",
+        id: 26,
+        category:6,
+        name: "The Wiki Game",
+        url:"https://www.thewikigame.com/group",
+        image:"wikigame.png",
+        caption: "Race to a Wikipedia page",
+        description: "DESC"
+    },
+    {
+        id: 27,
         category:6,
         name: "Line Rider",
         url:"https://www.linerider.com/",
@@ -252,7 +269,7 @@ const games = [
         description: "DESC"
     },
     {
-        id: "17",
+        id: 28,
         category:6,
         name: "Slither",
         url:"http://slither.io/",

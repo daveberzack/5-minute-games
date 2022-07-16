@@ -62,11 +62,35 @@ header {
     padding: 10px;
     background-color: #EEEEEE;
     overflow: hidden;
+    position: relative;
 }
 h1 {
     font-weight: 800;
     font-size: 20px;
     margin-top: 10px;
+}
+
+header .button {
+    right:7px;
+    width: 20px;
+    height: 20px;
+    border-radius: 99px;
+    background-color: #CCCCCC;
+    position: absolute;
+    top:10px;
+    padding: 5px;
+}
+
+header .help-button {
+    right:50px;
+}
+header .settings-button {
+    right:10px;
+}
+
+li .pin-button img {
+    width: 20px;
+    height: 20px;
 }
 
 img.logo {
@@ -84,6 +108,7 @@ ul {
 
 li {
     margin:10px 10px;
+    position: relative;
 }
 
 li.section-header {
@@ -95,10 +120,9 @@ li.section-header {
 
 li a {
     display: block;
-    margin: 0px auto;
     background-color: #EEEEEE;
     border-radius: 10px;
-    padding: 5px 5px 5px 65px;
+    padding: 5px 45px 5px 65px;
     position: relative;
     min-height: 50px;
     text-decoration: none;
@@ -121,4 +145,42 @@ li p {
     font-weight: 400;
     font-size: 16px;
     line-height:1.5; 
+}
+
+li .button {
+    position: absolute;
+    right:7px;
+    width: 20px;
+    height: 20px;
+    border-radius: 99px;
+    background-color: #CCCCCC;
+}
+
+li .pin-button {
+    top:7px;
+    width: 30px;
+    height: 30px;
+}
+li .pin-button img {
+    width: 20px;
+    height: 20px;
+}
+
+li .up-button, li .down-button {
+    width: 30px;
+    height: 22px;
+    border-radius: 5px;
+
+}
+li .up-button img, li .down-button img {
+    width: 20px;
+    height: 10px;
+    margin: 1px 0px;
+}
+
+li .up-button {
+    top:5px;
+}
+li .down-button {
+    bottom:5px;
 }

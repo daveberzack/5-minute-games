@@ -1,14 +1,17 @@
-add actual game listings
-categories, add category headers
-add logos, update logo
+get buttons working
+update logo, design
 
-reorder, pin
-save/load order locally
-add item (w/ emoji icon)
 
-instructions
-settings:
+instructions screen
+settings screen:
     dark mode
     locked mode
     feedback contact
     support
+
+
+add item (w/ emoji icon)
+
+
+// no cors:
+open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
