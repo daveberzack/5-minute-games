@@ -1,14 +1,11 @@
-get buttons working
-update logo, design
-
 
 instructions screen
 settings screen:
-    dark mode
+    mode
     locked mode
+    mark daily game on click
     feedback contact
     support
-
 
 add item (w/ emoji icon)
 
