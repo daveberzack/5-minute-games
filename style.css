@@ -53,6 +53,10 @@ table {
     font-family: 'BioRhyme', serif;
 }
 
+body {
+    background-color: #f4e8d5;
+}
+
 a:link { color: #000000; }
 a:active { color: #000000; }
 a:visited { color: #000000; }
@@ -60,7 +64,7 @@ a:hover { color: #000000; }
 
 header {
     padding: 10px;
-    background-color: #EEEEEE;
+    background-color: #FFFFFF;
     overflow: hidden;
     position: relative;
 }
@@ -75,7 +79,7 @@ header .button {
     width: 20px;
     height: 20px;
     border-radius: 99px;
-    background-color: #CCCCCC;
+    background-color: #f4e8d5;
     position: absolute;
     top:10px;
     padding: 5px;
@@ -112,7 +116,7 @@ li {
 }
 
 li.section-header {
-    color: #FFC0CB;
+    color: #ca6081;
     font-weight: 800;
     font-size: 20px;
     margin: 40px 10px 15px 10px;
@@ -120,7 +124,7 @@ li.section-header {
 
 li a {
     display: block;
-    background-color: #EEEEEE;
+    background-color: #FFFFFF;
     border-radius: 10px;
     padding: 5px 45px 5px 65px;
     position: relative;
@@ -153,7 +157,7 @@ li .button {
     width: 20px;
     height: 20px;
     border-radius: 99px;
-    background-color: #CCCCCC;
+    background-color: #f4e8d5;
 }
 
 li .pin-button {
