@@ -3,43 +3,43 @@ body {
 }
 
 header {
-    background-color: #302c24;
+    background-color: #053847;
 }
 
 header h1 {
-    color: #f4e8d5;
+    color: #fffee8;
     font-weight: 400;
 }
 
 header .button {
-    background-color: #5c564b;
+    background-color: #ffde38;
 }
 
 li.section-header {
-    color: #ca6081;
+    color: #053847;
 }
 
 li a {
-    background-color: #302c24;
+    background-color: #053847;
 }
 
 li h3 {
-    color: #f4e8d5;
+    color: #fffee8;
     font-weight: 400;
 }
 li p {
-    color: #f4e8d5;
+    color: #fffee8;
     font-weight: 300;
 }
 
 li .button {
-    background-color: #5c564b;
+    background-color: #ffde38;
 }
 
 .played a {
-    background-color: #1c1a16;
+    background-color: #222222;
 }
 
 .played h3, .played p {
-    color: #5c564b;
+    color: #666666;
 }

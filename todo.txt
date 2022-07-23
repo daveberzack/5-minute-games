@@ -1,6 +1,3 @@
-get actual date string
-on click, set played in array (and updatelocal)
-
 
 instructions screen
 settings screen:
@@ -16,6 +13,10 @@ settings screen:
 
 add item (w/ emoji icon)
 
+change game icons: remove outline
+change graphics to svg, stylable with color
+
+add more games
 
 // no cors:
 open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security

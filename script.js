@@ -39,18 +39,16 @@ let theme = localStorage.getItem('theme')?.trim() || "icecream";
 
 const otherGamesElement = document.getElementById("other-games");
 
+const changeTheme = (newTheme) => {
+    theme = newTheme;
+    localStorage.setItem("theme", newTheme);
+    applyTheme();
+}
 
-const setTheme = () => {
-
-    var icon = document.getElementById("theme-icon");
-    icon.href = './theme/'+theme+'/icons/favicon.ico';
-
-    var logo = document.getElementById("logo");
-    logo.src = './theme/'+theme+'/logo.png';
-
-    var styles = document.getElementById("theme-style");
-    styles.href = './theme/'+theme+'/style.css';
-
+const applyTheme = () => {
+    document.getElementById("theme-icon").href = './theme/'+theme+'/icons/favicon.ico';
+    document.getElementById("logo").src = './theme/'+theme+'/logo.png';
+    document.getElementById("theme-style").href = './theme/'+theme+'/style.css';
 }
 
 const formatListing = (game, isPinned, isPlayed, listIndex) => {
@@ -206,5 +204,5 @@ const updateLists = ()=> {
 
 }
 
-setTheme();
+applyTheme();
 updateLists();

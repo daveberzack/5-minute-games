@@ -1,24 +1,39 @@
-
 body {
-    background-color: #f4e8d5;
+    background-color: #add5e0;
 }
 
 header {
     background-color: #FFFFFF;
 }
 
+header h1 {
+    color: #000000;
+}
+
 header .button {
-    background-color: #f4e8d5;
+    background-color: #ffde38;
 }
 
 li.section-header {
-    color: #ca6081;
+    color: #116780;
 }
 
 li a {
-    background-color: #FFFFFF;
+    background-color: #fffee8;
+}
+
+li h3, li p {
+    color: #000000
 }
 
 li .button {
-    background-color: #f4e8d5;
+    background-color: #ffde38;
+}
+
+.played a {
+    background-color: #cee4eb;
+}
+
+.played h3, .played p {
+    color: #000000;
 }
