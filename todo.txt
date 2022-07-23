@@ -1,11 +1,18 @@
+get actual date string
+on click, set played in array (and updatelocal)
+
 
 instructions screen
 settings screen:
-    mode
-    locked mode
+    theme
+    locked
     mark daily game on click
     feedback contact
     support
+
+    paid:
+    more themes
+    hide non-pinned
 
 add item (w/ emoji icon)
 

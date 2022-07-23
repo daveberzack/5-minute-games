@@ -1,34 +1,70 @@
 import {games, categories} from "./games.js";
 games.forEach( (g,i) => g.index = i);
 
-const pinnedGameString = localStorage.getItem('pinnedGames')?.trim();
+let isLocked = localStorage.getItem('isLocked')?.trim() || false;
+
 let pinnedGames = [];
+const pinnedGameString = localStorage.getItem('pinnedGames')?.trim();
 if (pinnedGameString && pinnedGameString!="") pinnedGames = pinnedGameString.split(",");
+
+let playedToday = false;
+const todayString = "12345";
+const lastOpenedDate = localStorage.getItem('lastOpenedDate')?.trim() || "";
+if (todayString==lastOpenedDate){
+    playedToday = true;
+}
+else {
+    localStorage.setItem("lastOpenedDate", todayString);
+    localStorage.setItem("playedGames", "");
+}
+
+let playedGames = [];
+const playedGameString = localStorage.getItem('playedGames')?.trim();
+if (playedGameString && playedGameString!="") playedGames = playedGameString.split(",");
+
+let theme = localStorage.getItem('theme')?.trim() || "icecream";
 
 const otherGamesElement = document.getElementById("other-games");
 
-const formatListing = (game, isPinned, listIndex) => {
 
+const setTheme = () => {
+
+    var icon = document.getElementById("theme-icon");
+    icon.href = './theme/'+theme+'/icons/favicon.ico';
+
+    var logo = document.getElementById("logo");
+    logo.src = './theme/'+theme+'/logo.png';
+
+    var styles = document.getElementById("theme-style");
+    styles.href = './theme/'+theme+'/style.css';
+
+}
+
+const formatListing = (game, isPinned, isPlayed, listIndex) => {
+    console.log(isPlayed, game.index);
     const index = game.index;
     let buttonsHtml = "";
-    if (isPinned) {
-        if (listIndex>0){
-            buttonsHtml += `<div class="button up-button" data-index="${index}"><img src="./img/up.png"></div>`;
-        }
-        
-        if (listIndex<pinnedGames.length-1){
-            buttonsHtml += `<div class="button down-button" data-index="${index}"><img src="./img/down.png"></div>`;
+    if (!isLocked){
+        if (isPinned) {
+            if (listIndex>0){
+                buttonsHtml += `<div class="button up-button" data-index="${index}"><img src="./img/up.png"></div>`;
+            }
+            
+            if (listIndex<pinnedGames.length-1){
+                buttonsHtml += `<div class="button down-button" data-index="${index}"><img src="./img/down.png"></div>`;
+            }
+            else {
+                buttonsHtml += `<div class="button unpin-button" data-index="${index}"><img src="./img/unpin.png"></div>`;
+            }
         }
         else {
-            buttonsHtml += `<div class="button unpin-button" data-index="${index}"><img src="./img/unpin.png"></div>`;
-        }
+            buttonsHtml = `<div class="button pin-button" data-index="${index}"><img src="./img/pin.png"></div>`;
+        } 
     }
-    else {
-        buttonsHtml = `<div class="button pin-button" data-index="${index}"><img src="./img/pin.png"></div>`;
-    }
+    
 
     return `
-        <li>
+        <li class="${ isPlayed ? "played":"" }">
             <a href="${game.url}">
                 <img src="./img/icons/${game.image}"/>
                 <h3>${game.name}</h3>
@@ -88,7 +124,8 @@ const updateLists = ()=> {
     let pinnedHtml = "";
 
     pinnedGames.forEach( (g, i) => {
-        pinnedHtml += formatListing(games[g], true, i);
+        const isPlayed = playedGames.includes(g.index+"");
+        pinnedHtml += formatListing(games[g], true, isPlayed, i);
     });
 
     categories.forEach( c=>{
@@ -102,7 +139,8 @@ const updateLists = ()=> {
         i = i+"";
         let listIndex=0;
         if ( !pinnedGames.includes(i) ){
-            categoriesHtml[g.category] += formatListing(g, false, listIndex);
+            const isPlayed = playedGames.includes(g.index+"");
+            categoriesHtml[g.category] += formatListing(g, false, isPlayed, listIndex);
             listIndex++;
         }        
     });
@@ -135,4 +173,5 @@ const updateLists = ()=> {
 
 }
 
+setTheme();
 updateLists();
