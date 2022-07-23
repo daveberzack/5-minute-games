@@ -101,7 +101,7 @@ const linkToGame = (index, url) =>{
         storePinnedGames();
         updateLists();
     }
-    //window.location.href = url;
+    window.location.href = url;
 }
 
 const pinGame = index =>{
