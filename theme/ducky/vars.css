@@ -1,0 +1,18 @@
+:root {
+    --text-color: #000000;
+    --body-bg-color:#add5e0;
+    
+    --header-bg-color: #FFFFFF;
+    --item-bg-color: #FFFFFF;
+
+    --header-button-bg-color: #ffde38;
+    --item-button-bg-color: #ffde38;
+
+    --section-title-color: #116780;
+
+    --played-item-bg-color: #cee4eb;
+    --played-item-color: #000000;
+
+    --header-weight:800;
+    --copy-weight:400;
+}

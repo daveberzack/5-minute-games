@@ -48,7 +48,7 @@ const changeTheme = (newTheme) => {
 const applyTheme = () => {
     document.getElementById("theme-icon").href = './theme/'+theme+'/icons/favicon.ico';
     document.getElementById("logo").src = './theme/'+theme+'/logo.png';
-    document.getElementById("theme-style").href = './theme/'+theme+'/style.css';
+    document.getElementById("theme-style").href = './theme/'+theme+'/vars.css';
 }
 
 const formatListing = (game, isPinned, isPlayed, listIndex) => {
@@ -153,7 +153,7 @@ const updateLists = ()=> {
 
     categories.forEach( c=>{
         categoriesHtml.push(`
-            <li class="section-header">${c}</li>
+            <li class="section-title">${c}</li>
         `)
     });
 

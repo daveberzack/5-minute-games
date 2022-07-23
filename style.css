@@ -104,7 +104,7 @@ li {
     position: relative;
 }
 
-li.section-header {
+li.section-title {
     font-weight: 800;
     font-size: 20px;
     margin: 40px 10px 15px 10px;
@@ -173,4 +173,55 @@ li .up-button {
 }
 li .down-button, li .unpin-button {
     bottom:5px;
+}
+
+
+
+
+
+body {
+    background-color: var(--body-bg-color);
+}
+
+header {
+    background-color: var(--header-bg-color);
+}
+
+header h1 {
+    color: var(--text-color);
+    font-weight: var(--header-weight);
+}
+
+header .button {
+    background-color: var(--header-button-bg-color);
+}
+
+li.section-title {
+    font-weight: var(--header-weight);
+    color: var(--section-title-color);
+}
+
+li a {
+    background-color: var(--item-bg-color);
+}
+
+li h3 {
+    color: var(--text-color);
+    font-weight: var(--header-weight);
+}
+li p {
+    color: var(--text-color);
+    font-weight: var(--copy-weight);
+}
+
+li .button {
+    background-color: var(--item-button-bg-color);
+}
+
+.played a {
+    background-color: var(--played-item-bg-color);
+}
+
+.played h3, .played p {
+    color: var(--played-item-color);
 }
