@@ -174,7 +174,3 @@ li .up-button {
 li .down-button, li .unpin-button {
     bottom:5px;
 }
-
-.played a {
-    background-color: #FF0000 !important;
-}

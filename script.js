@@ -1,6 +1,19 @@
 import {games, categories} from "./games.js";
 games.forEach( (g,i) => g.index = i);
 
+
+function padTo2Digits(num) {
+    return num.toString().padStart(2, '0');
+}
+
+function formatDate(date = new Date()) {
+    return [
+        date.getFullYear(),
+        padTo2Digits(date.getMonth() + 1),
+        padTo2Digits(date.getDate()),
+    ].join('');
+}
+
 let isLocked = localStorage.getItem('isLocked')?.trim() || false;
 
 let pinnedGames = [];
@@ -8,7 +21,7 @@ const pinnedGameString = localStorage.getItem('pinnedGames')?.trim();
 if (pinnedGameString && pinnedGameString!="") pinnedGames = pinnedGameString.split(",");
 
 let playedToday = false;
-const todayString = "12345";
+const todayString = formatDate(new Date());
 const lastOpenedDate = localStorage.getItem('lastOpenedDate')?.trim() || "";
 if (todayString==lastOpenedDate){
     playedToday = true;
@@ -65,7 +78,7 @@ const formatListing = (game, isPinned, isPlayed, listIndex) => {
 
     return `
         <li class="${ isPlayed ? "played":"" }">
-            <a href="${game.url}">
+            <a class="link" href="${game.url}" data-index="${index}">
                 <img src="./img/icons/${game.image}"/>
                 <h3>${game.name}</h3>
                 <p>${game.caption}</p>
@@ -77,6 +90,18 @@ const formatListing = (game, isPinned, isPlayed, listIndex) => {
 
 const storePinnedGames = ()=>{
     localStorage.setItem('pinnedGames', pinnedGames.join(','));
+    localStorage.setItem('playedGames', playedGames.join(','));
+}
+
+const linkToGame = (index, url) =>{
+    console.log("play "+index);
+    const indexString = index+"";
+    if (!playedGames.includes(indexString)){
+        playedGames.push(indexString);
+        storePinnedGames();
+        updateLists();
+    }
+    //window.location.href = url;
 }
 
 const pinGame = index =>{
@@ -124,7 +149,7 @@ const updateLists = ()=> {
     let pinnedHtml = "";
 
     pinnedGames.forEach( (g, i) => {
-        const isPlayed = playedGames.includes(g.index+"");
+        const isPlayed = playedGames.includes(games[g].index+"");
         pinnedHtml += formatListing(games[g], true, isPlayed, i);
     });
 
@@ -146,6 +171,14 @@ const updateLists = ()=> {
     });
 
     otherGamesElement.innerHTML = pinnedHtml + categoriesHtml.join("");
+
+    
+    [...document.querySelectorAll('.link')].forEach(function(item) {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            linkToGame(item.getAttribute("data-index"), item.getAttribute("href"));
+        });
+    });
 
     [...document.querySelectorAll('.pin-button')].forEach(function(item) {
         item.addEventListener('click', function() {

@@ -19,6 +19,14 @@ li a {
     background-color: #FFFFFF;
 }
 
+
 li .button {
     background-color: #f4e8d5;
+}
+
+.played a {
+    background-color: #fcf6ed !important;
+}
+.played h3, .played p {
+    color: #baa88a;
 }
