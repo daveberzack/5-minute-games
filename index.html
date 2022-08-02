@@ -1,36 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>5 Minute Games</title>
 
-    <link rel="stylesheet" id="theme-style" href="./theme/icecream/style.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" id="theme-style" />
+    <link rel="stylesheet" href="./style.css" />
 
-    <link rel="icon" id="theme-icon" type="image/x-icon">
+    <link rel="icon" id="theme-icon" type="image/x-icon" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@300;400;800&display=swap" rel="stylesheet" type='text/css' data-noprefix>
-
-
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=BioRhyme:wght@300;400;800&display=swap" rel="stylesheet" type="text/css" data-noprefix />
   </head>
   <body>
-    <main>
-        <header>
-            <img id="logo"/>
-            <h1>5 Minute Games</h1> 
-            <div class="button help-button"><img src="./img/question.png"/></div>
-            <div class="button settings-button"><img src="./img/settings.png"/></div>
-        </header>
+    <header>
+      <img id="logo" class="main-button" />
+      <h1>5 Minute Games</h1>
+      <div id="help-button" class="button">
+        <img src="./img/question.png" />
+      </div>
+      <div id="settings-button" class="button">
+        <img src="./img/settings.png" />
+      </div>
+    </header>
 
-        <ul id="other-games">
-        </ul>
+    <div id="main" class="page shown">
+      <ul id="games-list" class="item-list"></ul>
+    </div>
 
-    </main>
-	<script src="script.js" type="module"></script>
+    <div id="settings" class="page">
+      <div class="button close-button main-button">
+        <img src="./img/close.png" />
+      </div>
+      <h2 class="section-title">Settings</h2>
+      <ul id="settings-list" class="item-list"></ul>
+    </div>
+
+    <div id="help" class="page">
+      <div class="button close-button main-button">
+        <img src="./img/close.png" />
+      </div>
+      <h2 class="section-title">About this Site</h2>
+      <p>5minute.games is a simple, customizable hub for<br />the best online minigames and daily puzzles.</p>
+      <p>
+        The buttons on each item let you pin your favorites to the top and reorder them. At the bottom of the list, you can add custom links. And the settings menu provides other nice options and
+        themes.
+      </p>
+      <p>
+        If you visit regularly, you might want to<br /><a href="https://www.computerhope.com/issues/ch000577.htm">set this as your homepage</a> or <br /><a
+          href="https://www.siumed.edu/oec/process/how-add-websites-home-screen-any-smartphone-or-tablet.html"
+          >add a link on your device's homescreen</a
+        >
+      </p>
+      <p>
+        If you have questions or feedback, please message me at
+        <a href="mailto:dave@5minute.games">dave@5minute.games</a>.
+      </p>
+      <p>
+        If you find this site useful, please consider making a small donation to support my work building indie games and other useful tools. I greatly appreciate it, and at some point I will unlock
+        some premium features for supporters.
+      </p>
+      <a class="button" href="https://ko-fi.com/daveberzack" target="donate">Donate</a>
+    </div>
+    <div id="modal-wrapper">
+      <div id="modal-block">asdf</div>
+    </div>
+
+    <script src="scripts/index.js" type="module"></script>
   </body>
 </html>

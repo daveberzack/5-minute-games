@@ -1,27 +1,26 @@
-
-instructions screen
 settings screen:
-    theme
-    locked
-    mark daily game on click
-    feedback contact
-    support
-
-    paid:
-    more themes
-    hide non-pinned
-
-add item (w/ emoji icon)
+    select theme
+    title, modal title
 
 change game icons: remove outline
 change graphics to svg, stylable with color
 
 add more games
 
-refactor css, script
+add item (w/ emoji icon)
+send new item to db
 
 
 
 
-// no cors:
-open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
+
+
+
+
+paid:
+more themes
+
+
+
+run server to avoid cors issues:
+http-server -c-1
