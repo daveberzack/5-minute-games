@@ -46,7 +46,7 @@ const showSettings = () => {
     html += `
       <li id="${s.name}-setting">
           <a class="setting" data-setting-index="${i}">
-              <img src="${chosen.icon}" />
+              <img src="${chosen.icon}" class="icon" />
               <h3>${s.labelPrefix}${chosen.label}</h3>
               <p>${chosen.description}</p>
           </a>
@@ -132,7 +132,7 @@ const formatListing = (game, isPinned, isPlayed, listIndex) => {
   return `
         <li class="${settings.markPlayed && isPlayed ? "played" : ""}">
             <a class="link" href="${game.url}" data-index="${index}">
-                <img src="./img/games/${game.image}"/>
+                <img class="icon" src="./img/games/${game.image}"/>
                 <h3>${game.name}</h3>
                 <p>${game.caption}</p>
             </a>
