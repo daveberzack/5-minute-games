@@ -22,6 +22,7 @@ const settings = {
     this.isLocked = localStorage.getItem("isLocked")?.trim() == 1 || false;
     this.isDark = localStorage.getItem("isDark")?.trim() == 1 || false;
     this.markPlayed = localStorage.getItem("markPlayed")?.trim() == 1 || false;
+    this.hideUnpinned = localStorage.getItem("hideUnpinned")?.trim() == 1 || false;
 
     //has played today? if not, reset played games
     this.playedToday = false;

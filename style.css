@@ -251,9 +251,11 @@ header #settings-button {
 
 .item-list li img {
   position: absolute;
-  top: 5px;
-  left: 5px;
-  height: 50px;
+  top: 8px;
+  left: 8px;
+  height: 40px;
+  border: 2px solid var(--text-color);
+  border-radius: 10px;
 }
 
 .item-list li h3 {

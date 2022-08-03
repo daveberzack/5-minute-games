@@ -1,24 +1,12 @@
-settings screen:
-    select theme
-    title, modal title
-
 change game icons: remove outline
 change graphics to svg, stylable with color
+
+https & security
 
 add more games
 
 add item (w/ emoji icon)
 send new item to db
-
-
-
-
-
-
-
-
-paid:
-more themes
 
 
 
