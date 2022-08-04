@@ -1,6 +1,7 @@
 :root {
-  --text-color: #fffee8;
   --body-bg-color: #000000;
+  --text-color: #fffee8;
+  --header-text-color: #fffee8;
 
   --header-bg-color: #053847;
   --item-bg-color: #053847;
@@ -15,4 +16,7 @@
 
   --header-weight: 400;
   --copy-weight: 300;
+
+  --game-logo-opacity: 1;
+  --icon-color: #053847;
 }

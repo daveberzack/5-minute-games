@@ -1,14 +1,24 @@
-change game icons: remove outline
-change graphics to svg, stylable with color
+item opacity, button icon color... all in themes
+copyright
+
+reference games by id
+refactor how items are added to page in categories
 
 https & security
 
-add more games
+
+
+
+
 
 add item (w/ emoji icon)
 send new item to db
 
 
 
+
+
 run server to avoid cors issues:
 http-server -c-1
+
+http://192.168.86.29:8080

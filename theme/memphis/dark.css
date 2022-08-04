@@ -1,0 +1,22 @@
+:root {
+  --body-bg-color: #000000;
+  --text-color: #ffffff;
+  --header-text-color: #000000;
+
+  --header-bg-color: #38a4e3;
+  --item-bg-color: #e8477c;
+
+  --header-button-bg-color: #e9f200;
+  --item-button-bg-color: #e9f200;
+
+  --section-title-color: #e9f200;
+
+  --played-item-bg-color: #38a4e3;
+  --played-item-color: #00273d;
+
+  --header-weight: 800;
+  --copy-weight: 400;
+
+  --game-logo-opacity: 1;
+  --icon-color: #000000;
+}

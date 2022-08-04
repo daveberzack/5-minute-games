@@ -1,25 +1,31 @@
 import { games, categories } from "./games.js";
 import settings from "./settings.js";
 import settingsScreen from "./settingsScreen.js";
+import { pinIcon, upIcon, downIcon, unpinIcon, helpIcon, settingsIcon, closeIcon } from "./icons.js";
 
 games.forEach((g, i) => (g.index = i));
 
+console.log(games);
 const init = () => {
   settings.loadSettings();
 
   document.getElementById("help-button").addEventListener("click", function () {
     showPage("help");
   });
+  document.getElementById("help-button").innerHTML = helpIcon;
 
   document.getElementById("settings-button").addEventListener("click", function () {
     showPage("settings");
   });
+  document.getElementById("settings-button").innerHTML = settingsIcon;
 
   document.querySelectorAll(".main-button")?.forEach((e) => {
     e.addEventListener("click", function () {
       showPage("main");
     });
   });
+
+  [...document.querySelectorAll(".close-button")].forEach((item) => (item.innerHTML = closeIcon));
 
   document.getElementById("modal-wrapper").addEventListener("click", function (e) {
     hideModal();
@@ -32,7 +38,7 @@ const init = () => {
 const applyTheme = () => {
   const cssFilename = settings.isDark ? "dark" : "light";
   document.getElementById("theme-icon").href = "./theme/" + settings.theme + "/icons/favicon.ico";
-  document.getElementById("logo").src = "./theme/" + settings.theme + "/logo.png";
+  document.getElementById("logo").src = "./theme/" + settings.theme + "/icons/android-chrome-192x192.png";
   document.getElementById("theme-style").href = "./theme/" + settings.theme + "/" + cssFilename + ".css";
 };
 
@@ -111,21 +117,22 @@ const showPage = (id) => {
 };
 
 const formatListing = (game, isPinned, isPlayed, listIndex) => {
+  console.log(game);
   const index = game.index;
   let buttonsHtml = "";
   if (!settings.isLocked) {
     if (isPinned) {
       if (listIndex > 0) {
-        buttonsHtml += `<div class="button up-button small-button" data-index="${index}"><img src="./img/up.png"></div>`;
+        buttonsHtml += `<div class="button up-button small-button" data-index="${index}">${upIcon}</div>`;
       }
 
       if (listIndex < settings.pinnedGames.length - 1) {
-        buttonsHtml += `<div class="button down-button small-button" data-index="${index}"><img src="./img/down.png"></div>`;
+        buttonsHtml += `<div class="button down-button small-button" data-index="${index}">${downIcon}</div>`;
       } else {
-        buttonsHtml += `<div class="button unpin-button small-button" data-index="${index}"><img src="./img/unpin.png"></div>`;
+        buttonsHtml += `<div class="button unpin-button small-button" data-index="${index}">${unpinIcon}</div>`;
       }
     } else {
-      buttonsHtml = `<div class="button pin-button" data-index="${index}"><img src="./img/pin.png"></div>`;
+      buttonsHtml = `<div class="button pin-button" data-index="${index}">${pinIcon}</div>`;
     }
   }
 

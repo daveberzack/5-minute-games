@@ -1,18 +1,22 @@
 :root {
-    --text-color: #1c1a16;
-    --body-bg-color:#f4e8d5;
-    
-    --header-bg-color: #FFFFFF;
-    --item-bg-color: #FFFFFF;
+  --body-bg-color: #f4e8d5;
+  --text-color: #1c1a16;
+  --header-text-color: #1c1a16;
 
-    --header-button-bg-color: #f4e8d5;
-    --item-button-bg-color: #f4e8d5;
+  --header-bg-color: #ffffff;
+  --item-bg-color: #ffffff;
 
-    --section-title-color: #ca6081;
+  --header-button-bg-color: #f4e8d5;
+  --item-button-bg-color: #f4e8d5;
 
-    --played-item-bg-color: #fcf6ed;
-    --played-item-color: #baa88a;
+  --section-title-color: #ca6081;
 
-    --header-weight:800;
-    --copy-weight:400;
+  --played-item-bg-color: #fcf6ed;
+  --played-item-color: #baa88a;
+
+  --header-weight: 800;
+  --copy-weight: 400;
+
+  --game-logo-opacity: 1;
+  --icon-color: #ca6081;
 }
