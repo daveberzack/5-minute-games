@@ -47,33 +47,28 @@ const settings = {
     if (pinnedGameString && pinnedGameString != "") this.pinnedGames = pinnedGameString.split(",");
   },
 
-  pinGame: function (index) {
-    console.log("pin", index);
-    const indexString = index + "";
-    if (!this.pinnedGames.includes(indexString)) {
-      this.pinnedGames.push(indexString);
+  pinGame: function (id) {
+    console.log("pin " + id);
+    if (!this.pinnedGames.includes(id)) {
+      this.pinnedGames.push(id);
       localStorage.setItem("pinnedGames", this.pinnedGames.join(","));
     }
   },
 
-  unpinGame: function (index) {
-    const indexString = index + "";
+  unpinGame: function (id) {
+    console.log("unpin " + id);
     for (let i = 0; i < this.pinnedGames.length; i++) {
-      if (this.pinnedGames[i] == indexString) {
+      if (this.pinnedGames[i] == id) {
         this.pinnedGames.splice(i, 1);
       }
     }
     localStorage.setItem("pinnedGames", this.pinnedGames.join(","));
   },
 
-  movePinnedGame: function (gameIndex, change) {
-    const gameIndexString = gameIndex + "";
-    let listIndex = -1;
-    for (let i = 0; i < this.pinnedGames.length; i++) {
-      if (this.pinnedGames[i] == gameIndexString) {
-        listIndex = i;
-      }
-    }
+  movePinnedGame: function (id, change) {
+    console.log("move " + id + ":" + change);
+    let listIndex = this.pinnedGames.indexOf(id);
+
     if (listIndex >= 0) {
       const targetGame = this.pinnedGames[listIndex];
       this.pinnedGames[listIndex] = this.pinnedGames[listIndex + change];
@@ -82,8 +77,8 @@ const settings = {
     }
   },
 
-  markGameAsPlayed: function (indexString) {
-    this.playedGames.push(indexString);
+  markGameAsPlayed: function (id) {
+    this.playedGames.push(id + "");
     localStorage.setItem("playedGames", this.playedGames.join(","));
   },
 

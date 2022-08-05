@@ -2,6 +2,7 @@ const games = [
   /////////////// NYT Games ///////////////////////
 
   {
+    id: "1",
     category: 2,
     name: "Wordle",
     url: "https://www.nytimes.com/games/wordle/index.html",
@@ -9,6 +10,7 @@ const games = [
     caption: "The hit 5-letter guessing game",
   },
   {
+    id: "2",
     category: 2,
     name: "The Mini",
     url: "https://www.nytimes.com/crosswords/game/mini",
@@ -16,6 +18,7 @@ const games = [
     caption: "A quick, simple crossword",
   },
   {
+    id: "3",
     category: 2,
     name: "Letter Boxed",
     url: "https://www.nytimes.com/puzzles/letter-boxed",
@@ -23,6 +26,7 @@ const games = [
     caption: "Chain words to use all the letters",
   },
   {
+    id: "4",
     category: 2,
     name: "Vertex",
     url: "https://www.nytimes.com/puzzles/vertex",
@@ -30,6 +34,7 @@ const games = [
     caption: "Connect dots to reveal the image",
   },
   {
+    id: "5",
     category: 2,
     name: "Tiles",
     url: "https://www.nytimes.com/puzzles/tiles",
@@ -37,6 +42,7 @@ const games = [
     caption: "Match tiles by design elements",
   },
   {
+    id: "6",
     category: 2,
     name: "Sudoku: Easy",
     url: "https://www.nytimes.com/puzzles/sudoku/easy",
@@ -44,6 +50,7 @@ const games = [
     caption: "Deduce the numbers in a grid",
   },
   {
+    id: "7",
     category: 2,
     name: "Sudoku: Medium",
     url: "https://www.nytimes.com/puzzles/sudoku/medium",
@@ -51,6 +58,7 @@ const games = [
     caption: "A challenging number grid",
   },
   {
+    id: "8",
     category: 2,
     name: "Sudoku: Hard",
     url: "https://www.nytimes.com/puzzles/sudoku/hard",
@@ -61,6 +69,7 @@ const games = [
   /////////////// Wordle Spin Offs ///////////////////////
 
   {
+    id: "9",
     category: 3,
     name: "Waffle",
     url: "https://wafflegame.net/",
@@ -68,6 +77,7 @@ const games = [
     caption: "Swap letters to form words",
   },
   {
+    id: "10",
     category: 3,
     name: "Dordle",
     url: "https://dordlewordle.com/",
@@ -75,6 +85,7 @@ const games = [
     caption: "Wordle, but with two words",
   },
   {
+    id: "11",
     category: 3,
     name: "Quordle",
     url: "https://www.quordle.com/",
@@ -82,6 +93,7 @@ const games = [
     caption: "Wordle, but with four words",
   },
   {
+    id: "12",
     category: 3,
     name: "Crosswordle",
     url: "https://crosswordle.vercel.app/",
@@ -89,6 +101,7 @@ const games = [
     caption: "Fill in the letters of a Wordle",
   },
   {
+    id: "13",
     category: 3,
     name: "Absurdle",
     url: "https://qntm.org/files/absurdle/absurdle.html",
@@ -96,6 +109,7 @@ const games = [
     caption: "Wordle, but it eludes you",
   },
   {
+    id: "14",
     category: 3,
     name: "Squareword",
     url: "https://squareword.org/",
@@ -103,6 +117,7 @@ const games = [
     caption: "Guess a square of words",
   },
   {
+    id: "15",
     category: 3,
     name: "Xordle",
     url: "https://xordle.xyz/",
@@ -110,6 +125,7 @@ const games = [
     caption: "Wordle with two words together",
   },
   {
+    id: "16",
     category: 3,
     name: "IYKNK",
     url: "https://www.iykyk.com/",
@@ -117,6 +133,7 @@ const games = [
     caption: "Guess the slang acronym",
   },
   {
+    id: "17",
     category: 3,
     name: "Squirdle",
     url: "https://squirdle.fireblend.com/",
@@ -124,6 +141,7 @@ const games = [
     caption: "Guess a pokemon by its traits",
   },
   {
+    id: "18",
     category: 3,
     name: "Adverswordle",
     url: "https://adverswordle.doteye.online/",
@@ -131,6 +149,7 @@ const games = [
     caption: "Wordle in reverse",
   },
   {
+    id: "19",
     category: 3,
     name: "Hurdle",
     url: "https://playhurdle.vercel.app/",
@@ -138,6 +157,7 @@ const games = [
     caption: "Wordle, with vague clues",
   },
   {
+    id: "20",
     category: 3,
     name: "Dugleon",
     url: "https://www.dungleon.com/",
@@ -148,6 +168,7 @@ const games = [
   /////////////// Other Guessing Games ///////////////////////
 
   {
+    id: "21",
     category: 4,
     name: "Redactle",
     url: "https://www.redactle.com/",
@@ -156,6 +177,7 @@ const games = [
   },
 
   {
+    id: "22",
     category: 4,
     name: "Heardle",
     url: "https://www.spotify.com/heardle/",
@@ -163,6 +185,7 @@ const games = [
     caption: "Name a tune in a few seconds",
   },
   {
+    id: "23",
     category: 4,
     name: "Emovie",
     url: "https://emovi.teuteuf.fr/",
@@ -170,6 +193,7 @@ const games = [
     caption: "Guess a movie from an emoji clue",
   },
   {
+    id: "24",
     category: 4,
     name: "Numberle",
     url: "https://numberle.org/",
@@ -177,6 +201,7 @@ const games = [
     caption: "Guess a math equation",
   },
   {
+    id: "25",
     category: 4,
     name: "Artle",
     url: "https://www.nga.gov/artle.html",
@@ -184,6 +209,7 @@ const games = [
     caption: "Guess an artist by their work",
   },
   {
+    id: "26",
     category: 4,
     name: "Worldle",
     url: "https://worldle.teuteuf.fr/",
@@ -191,6 +217,7 @@ const games = [
     caption: "Guess a country by distance",
   },
   {
+    id: "27",
     category: 4,
     name: "Framed",
     url: "https://framed.wtf/",
@@ -199,6 +226,7 @@ const games = [
   },
 
   {
+    id: "28",
     category: 4,
     name: "Box Office Game",
     url: "https://boxofficega.me/",
@@ -207,6 +235,7 @@ const games = [
   },
 
   {
+    id: "29",
     category: 4,
     name: "Name That Ride",
     url: "https://www.namethatride.com/",
@@ -217,6 +246,7 @@ const games = [
   /////////////// Strategy & Puzzle Games ///////////////////////
 
   {
+    id: "30",
     category: 5,
     name: "Entanglement",
     url: "http://entanglement.gopherwoodstudios.com/en-US-index.html",
@@ -224,6 +254,7 @@ const games = [
     caption: "Build a path with hex tiles",
   },
   {
+    id: "31",
     category: 5,
     name: "Color Pipes",
     url: "https://www.cbc.ca/kids/games/play/color-pipes",
@@ -231,6 +262,7 @@ const games = [
     caption: "Connect without overlapping",
   },
   {
+    id: "32",
     category: 5,
     name: "Nonograms",
     url: "https://www.puzzle-nonograms.com/",
@@ -241,6 +273,7 @@ const games = [
   /////////////// Other Games ///////////////////////
 
   {
+    id: "33",
     category: 6,
     name: "Scrabble",
     url: "https://playscrabble.com/",
@@ -248,6 +281,7 @@ const games = [
     caption: "The classic crossword game",
   },
   {
+    id: "34",
     category: 6,
     name: "Gridland",
     url: "http://gridland.doublespeakgames.com/",
@@ -255,6 +289,7 @@ const games = [
     caption: "An adventurous match-3",
   },
   {
+    id: "35",
     category: 6,
     name: "Quick Draw",
     url: "https://quickdraw.withgoogle.com/",
@@ -262,6 +297,7 @@ const games = [
     caption: "Doodle for an A.I.",
   },
   {
+    id: "36",
     category: 6,
     name: "The Wiki Game",
     url: "https://www.thewikigame.com/group",
@@ -269,6 +305,7 @@ const games = [
     caption: "Race to a Wikipedia page",
   },
   {
+    id: "37",
     category: 6,
     name: "Line Rider",
     url: "https://www.linerider.com/",
@@ -276,6 +313,7 @@ const games = [
     caption: "Path-drawing and physics",
   },
   {
+    id: "38",
     category: 6,
     name: "Slither",
     url: "http://slither.io/",
@@ -284,6 +322,7 @@ const games = [
   },
 
   {
+    id: "39",
     category: 6,
     name: "Snake",
     url: "https://solitaired.com/snake",
@@ -292,6 +331,7 @@ const games = [
   },
 
   {
+    id: "40",
     category: 6,
     name: "Phrazle",
     url: "https://solitaired.com/phrazle",
@@ -300,6 +340,7 @@ const games = [
   },
 
   {
+    id: "41",
     category: 6,
     name: "Spelling Bee",
     url: "https://spelling-bee.io/",
@@ -308,6 +349,7 @@ const games = [
   },
 
   {
+    id: "42",
     category: 6,
     name: "Weaver",
     url: "https://weavergame.org/",
@@ -316,14 +358,15 @@ const games = [
   },
 
   {
+    id: "43",
     category: 6,
     name: "Solitaire",
     url: "https://solitaire.online/",
     image: "solitaire.png",
     caption: "Play Klondike or Spider",
   },
-
   {
+    id: "44",
     category: 6,
     name: "Cowordle",
     url: "https://cowordle.org/",
@@ -333,13 +376,35 @@ const games = [
 ];
 
 const categories = [
-  "",
-  "", //Editor's Choice
-  "New York Times Games",
-  "Wordle Spin-Offs",
-  "Other Guessing Games",
-  "Strategy & Puzzle Games",
-  "Other Games",
+  {
+    id: "2",
+    name: "New York Times Games",
+    games: [],
+  },
+  {
+    id: "3",
+    name: "Wordle Spin-Offs",
+    games: [],
+  },
+  {
+    id: "4",
+    name: "Other Guessing Games",
+    games: [],
+  },
+  {
+    id: "5",
+    name: "Strategy & Puzzle Games",
+    games: [],
+  },
+  {
+    id: "6",
+    name: "Other Games",
+    games: [],
+  },
 ];
+
+categories.forEach((c) => {
+  c.games = games.filter((g) => g.category == c.id);
+});
 
 export { games, categories };

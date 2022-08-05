@@ -240,15 +240,15 @@ header #settings-button {
 /* ============== Item List ============== */
 
 .item-list {
-  margin-top: 20px;
+  margin-top: 10px;
   overflow: hidden;
 }
 
-.section-title {
+h2 {
   font-weight: var(--header-weight);
   color: var(--section-title-color);
   font-size: 20px;
-  margin: 30px 10px 15px 10px !important;
+  margin: 30px 10px 0px 10px !important;
 }
 
 .item-list li {

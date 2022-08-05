@@ -1,22 +1,7 @@
-item opacity, button icon color... all in themes
-copyright
-
-reference games by id
-refactor how items are added to page in categories
-
-https & security
-
-
-
-
 
 
 add item (w/ emoji icon)
 send new item to db
-
-
-
-
 
 run server to avoid cors issues:
 http-server -c-1
