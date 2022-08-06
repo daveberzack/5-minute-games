@@ -6,6 +6,36 @@ import { pinIcon, upIcon, downIcon, unpinIcon, helpIcon, settingsIcon, closeIcon
 const init = () => {
   settings.loadSettings();
 
+  document.getElementById("new-emoji").addEventListener("focus", function (e) {
+    e.target.value = "";
+  });
+
+  document.getElementById("add-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nameEl = document.getElementById("new-name");
+    const urlEl = document.getElementById("new-url");
+    const emojiEl = document.getElementById("new-emoji");
+    const captionEl = document.getElementById("new-caption");
+
+    //add new game
+    const newGame = {
+      name: nameEl.value,
+      url: urlEl.value,
+      emoji: emojiEl.value,
+      caption: captionEl.value,
+    };
+    settings.addGame(newGame);
+
+    updateLists();
+
+    //clear form
+    nameEl.value = "";
+    urlEl.value = "";
+    emojiEl.value = "";
+    captionEl.value = "";
+  });
+
   document.getElementById("help-button").addEventListener("click", function () {
     showPage("help");
   });
@@ -119,6 +149,7 @@ const linkToGame = (id, url) => {
 };
 
 const formatListing = (game, isPinned, isPlayed, listIndex) => {
+  //console.log({ game, isPinned, isPlayed, listIndex });
   let buttonsHtml = "";
   if (!settings.isLocked) {
     if (isPinned) {
@@ -136,11 +167,16 @@ const formatListing = (game, isPinned, isPlayed, listIndex) => {
     }
   }
 
+  let gameIconEl = `<div class="emoji-icon">${game.emoji}</div>`;
+  if (game.image) {
+    gameIconEl = `<img class="icon" src="./img/games/${game.image}"/>`;
+  }
+
   return `
         <li class="${settings.markPlayed && isPlayed ? "played" : ""}">
             <a class="link" href="${game.url}" data-id="${game.id}">
-                <img class="icon" src="./img/games/${game.image}"/>
-                <h3>${game.name} ${listIndex}</h3>
+                ${gameIconEl}
+                <h3>${game.name}</h3>
                 <p>${game.caption}</p>
             </a>
             ${buttonsHtml}
@@ -154,7 +190,7 @@ const updateLists = () => {
   //add all pinned games
   html += '<ul class="item-list">';
   settings.pinnedGames.forEach((p, i) => {
-    const game = games.find((g) => g.id == p);
+    let game = games.concat(settings.myGames).find((g) => g.id == p);
     const isPlayed = settings.playedGames.includes(game?.id);
     html += formatListing(game, true, isPlayed, i);
   });

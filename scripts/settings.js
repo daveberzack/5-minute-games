@@ -15,6 +15,7 @@ const settings = {
   playedToday: false,
   pinnedGames: [],
   playedGames: [],
+  myGames: [],
 
   loadSettings: function () {
     //get theme and locked
@@ -23,6 +24,7 @@ const settings = {
     this.isDark = localStorage.getItem("isDark")?.trim() == 1 || false;
     this.markPlayed = localStorage.getItem("markPlayed")?.trim() == 1 || false;
     this.hideUnpinned = localStorage.getItem("hideUnpinned")?.trim() == 1 || false;
+    this.myGames = JSON.parse(localStorage.getItem("myGames") || "[]");
 
     //has played today? if not, reset played games
     this.playedToday = false;
@@ -48,7 +50,6 @@ const settings = {
   },
 
   pinGame: function (id) {
-    console.log("pin " + id);
     if (!this.pinnedGames.includes(id)) {
       this.pinnedGames.push(id);
       localStorage.setItem("pinnedGames", this.pinnedGames.join(","));
@@ -56,19 +57,21 @@ const settings = {
   },
 
   unpinGame: function (id) {
-    console.log("unpin " + id);
-    for (let i = 0; i < this.pinnedGames.length; i++) {
-      if (this.pinnedGames[i] == id) {
-        this.pinnedGames.splice(i, 1);
-      }
-    }
+    this.pinnedGames.forEach((g, i) => {
+      if (g == id) this.pinnedGames.splice(i, 1);
+    });
+    this.myGames.forEach((g, i) => {
+      if (g.id == id) this.myGames.splice(i, 1);
+    });
+
     localStorage.setItem("pinnedGames", this.pinnedGames.join(","));
+    localStorage.setItem("myGames", JSON.stringify(this.myGames));
   },
 
   movePinnedGame: function (id, change) {
-    console.log("move " + id + ":" + change);
     let listIndex = this.pinnedGames.indexOf(id);
 
+    console.log("move " + id + ":" + change + "..." + listIndex);
     if (listIndex >= 0) {
       const targetGame = this.pinnedGames[listIndex];
       this.pinnedGames[listIndex] = this.pinnedGames[listIndex + change];
@@ -80,6 +83,22 @@ const settings = {
   markGameAsPlayed: function (id) {
     this.playedGames.push(id + "");
     localStorage.setItem("playedGames", this.playedGames.join(","));
+  },
+
+  addGame(game) {
+    let maxId = 1000;
+    this.myGames.forEach((g) => {
+      maxId = Math.max(g.id, maxId);
+    });
+    game.id = maxId + 1 + "";
+    this.myGames.push(game);
+    this.pinGame(game.id);
+    localStorage.setItem("myGames", JSON.stringify(this.myGames));
+  },
+
+  removeGame(id) {
+    this.myGames.push(game);
+    localStorage.setItem("myGames", JSON.stringify(this.myGames));
   },
 
   toggleVar: function (name) {
