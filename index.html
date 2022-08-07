@@ -31,10 +31,12 @@
         <p class="message">Enter a name, description, and URL. For the icon, type or paste one letter or an emoji, and select a background color</p>
   
         <div id="new-item">
-          <input id="new-emoji" class="emoji-icon"></input>
+          <input id="new-emoji" class="emoji-icon" data-bg="#999999" style="background-color:#999999" autocomplete="off"></input>
+          <img id="change-color" src="img/colorwheel.png"/>
           <input id="new-name" placeholder="GameName" maxlength="25"/>
           <input id="new-caption" placeholder="Short Description" maxlength="50"/>
-          <input id="new-url" placeholder="http://www.gameurl.com" />
+          <input id="new-url" placeholder="http://www.gameurl.com" autocorrect="off" autocapitalize="none" />
+          <div id="new-item-added" class="hidden"><div class="inner">Added to List</div></div>
         </div>
         <input type="submit" id="add-form-submit" value="Add">
       </form>
@@ -75,7 +77,7 @@
     </div>
 
     <div id="modal-wrapper">
-      <div id="modal-block">asdf</div>
+      <div id="modal-block"></div>
     </div>
 
     <script src="scripts/index.js" type="module"></script>

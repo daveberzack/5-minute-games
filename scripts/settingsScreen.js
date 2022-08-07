@@ -71,7 +71,7 @@ const settingsScreen = [
       {
         value: "0",
         label: "Listings Editable",
-        description: "You can pin and reorder items",
+        description: "You can pin, reorder and add items",
         icon: "img/settings/unlocked.png",
       },
       {
