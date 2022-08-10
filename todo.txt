@@ -1,7 +1,5 @@
 
 
-
-
 send new item to db
 
 run server to avoid cors issues:

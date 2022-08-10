@@ -1,11 +1,4 @@
-const _padTo2Digits = function (num) {
-  return num.toString().padStart(2, "0");
-};
-
-const _getTodayString = function () {
-  const date = new Date();
-  return [date.getFullYear(), _padTo2Digits(date.getMonth() + 1), _padTo2Digits(date.getDate())].join("");
-};
+import { getTodayString, getTimeString } from "./utils.js";
 
 const settings = {
   theme: "",
@@ -16,19 +9,25 @@ const settings = {
   pinnedGames: [],
   playedGames: [],
   myGames: [],
+  lockoutTimer: 0,
+  lockedOutUntil: 0,
+  isLockedOut: false,
 
   loadSettings: function () {
     //get theme and locked
-    this.theme = localStorage.getItem("theme")?.trim() || "icecream";
+    this.theme = localStorage.getItem("theme")?.trim() || "ducky";
     this.isLocked = localStorage.getItem("isLocked")?.trim() == 1 || false;
     this.isDark = localStorage.getItem("isDark")?.trim() == 1 || false;
     this.markPlayed = localStorage.getItem("markPlayed")?.trim() == 1 || false;
     this.hideUnpinned = localStorage.getItem("hideUnpinned")?.trim() == 1 || false;
     this.myGames = JSON.parse(localStorage.getItem("myGames") || "[]");
+    this.lockoutTimer = localStorage.getItem("lockoutTimer") || 0;
+    this.lockedOutUntil = localStorage.getItem("lockedOutUntil") || 0;
+    this.isLockedOut = getTimeString() < this.lockedOutUntil;
 
     //has played today? if not, reset played games
     this.playedToday = false;
-    const todayString = _getTodayString();
+    const todayString = getTodayString();
     const lastOpenedDate = localStorage.getItem("lastOpenedDate")?.trim() || "";
     if (todayString == lastOpenedDate) {
       this.playedToday = true;
@@ -104,6 +103,22 @@ const settings = {
   toggleVar: function (name) {
     this[name] = !this[name];
     localStorage.setItem(name, this[name] ? 1 : 0);
+  },
+
+  setLockedOutUntil: function () {
+    if (this.lockoutTimer > 0) {
+      const newLockeOutUntil = Math.max(this.lockedOutUntil, getTimeString(this.lockoutTimer));
+      localStorage.setItem("lockedOutUntil", newLockeOutUntil);
+    }
+  },
+
+  switchVar: function (setting) {
+    const currentValue = this[setting.name];
+    const currentIndex = setting.options.map((o) => o.value).indexOf(currentValue);
+    const newIndex = (currentIndex + 1) % setting.options.length;
+    const newValue = setting.options[newIndex].value;
+    this[setting.name] = newValue;
+    localStorage.setItem(setting.name, newValue);
   },
 
   setVar: function (name, value) {

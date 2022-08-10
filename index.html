@@ -2,14 +2,32 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>5 Minute Games</title>
 
     <link rel="stylesheet" id="theme-style" href="./theme/grey/dark.css" />
     <link rel="stylesheet" href="./style.css" />
 
-    <link rel="icon" id="theme-icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#000000">
+
+    <title>5 Minute Games - Play Now</title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="icon" href="https://www.5minute.games/img/icons/ducky.ico?v=1" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.5minute.games/img/icons/180.png?v=1">
+    <link rel="shortcut icon" href="https://www.5minute.games/img/icons/ducky.ico?v=1">
+    <link href="https://www.5minute.games/img/icons/32.png?v=1" rel="icon shortcut" sizes="3232">
+    <link href="https://www.5minute.games/img/icons/192.png?v=1" rel="apple-touch-icon">
+    <meta name="apple-mobile-web-app-title" content="5 Min Games">
+    <meta name="application-name" content="5 Min Games">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="theme-color" content="#FFFFFF">
+    <meta property="description" content="All your favorite daily games and puzzles, in one place.">
+    <meta property="og:title" content="5Minute.Games - Play Now"><meta property="og:url" content="https://www.5minute.games">
+    <meta property="og:description" content="All your favorite daily games and puzzles, in one place.">
+    <meta property="og:image" content="https://www.5minute.games/img/icons/1200fb.png?v=1">
+    <meta property="twitter:card" content="summary_large_image"><meta property="twitter:domain" content="5minute.games">
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,7 +35,7 @@
   </head>
   <body>
     <header>
-      <img id="logo" class="main-button" />
+      <img id="logo" class="main-button" src="https://www.5minute.games/img/icons/180.png?v=1"/>
       <h1>5 Minute Games</h1>
       <div id="help-button" class="button"></div>
       <div id="settings-button" class="button"></div>
@@ -28,7 +46,7 @@
 
       <form id="add-form">
         <h2>Add a New Custom Link</h2>
-        <p class="message">Enter a name, description, and URL. For the icon, type or paste one letter or an emoji, and select a background color</p>
+        <p class="message">Enter a name, description, and URL. For the icon, type or paste one letter or <a href="https://getemoji.com/" target="emoji">an emoji</a>, and select a background color. Pro tip: it doesn't have to be a game...</p>
   
         <div id="new-item">
           <input id="new-emoji" class="emoji-icon" data-bg="#999999" style="background-color:#999999" autocomplete="off"></input>
@@ -41,6 +59,15 @@
         <input type="submit" id="add-form-submit" value="Add">
       </form>
 
+
+      <footer>Ⓒ Dave Berzack 2022</footer>
+    </div>
+
+    <div id="locked" class="page shown">
+      <h2>Links are Locked</h2>
+      <p>You set this page to lock to prevent binging on games, so you can enjoy a little diversion, and not a long distraction.</p>
+      <p>Good for you!</p>
+      <p>Come back in <span id="lockout-remaining">a few</span> minutes and play another game.</p>
 
       <footer>Ⓒ Dave Berzack 2022</footer>
     </div>

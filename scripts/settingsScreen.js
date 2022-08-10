@@ -122,6 +122,37 @@ const settingsScreen = [
       },
     ],
   },
+  {
+    name: "lockoutTimer",
+    type: "switch",
+    labelPrefix: "",
+    options: [
+      {
+        value: "0",
+        label: "Binge Guard Off",
+        description: "Page does not lock links",
+        icon: "img/settings/lockout0.png",
+      },
+      {
+        value: "15",
+        label: "Binge Guard: 15m",
+        description: "Lock page for 15 minutes",
+        icon: "img/settings/lockout15.png",
+      },
+      {
+        value: "30",
+        label: "Binge Guard: 30m",
+        description: "Lock page for 30 minutes",
+        icon: "img/settings/lockout30.png",
+      },
+      {
+        value: "60",
+        label: "Binge Guard: 60m",
+        description: "Lock page for 60 minutes",
+        icon: "img/settings/lockout60.png",
+      },
+    ],
+  },
 ];
 
 export default settingsScreen;

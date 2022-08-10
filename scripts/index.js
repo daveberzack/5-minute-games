@@ -1,11 +1,16 @@
 import { games, categories } from "./games.js";
+import { getTimeString } from "./utils.js";
 import settings from "./settings.js";
 import settingsScreen from "./settingsScreen.js";
 import { pinIcon, upIcon, downIcon, unpinIcon, helpIcon, settingsIcon, closeIcon } from "./icons.js";
 
-const init = () => {
-  settings.loadSettings();
+const init = async () => {
+  await settings.loadSettings();
 
+  if (settings.isLockedOut) {
+    showPage("locked");
+    document.getElementById("lockout-remaining").innerHTML = settings.lockedOutUntil - getTimeString();
+  }
   document.getElementById("new-emoji").addEventListener("focus", function (e) {
     e.target.value = "";
   });
@@ -91,7 +96,6 @@ const validateNewItem = () => {
 };
 const applyTheme = () => {
   const cssFilename = settings.isDark ? "dark" : "light";
-  document.getElementById("theme-icon").href = "./theme/" + settings.theme + "/icons/favicon.ico";
   document.getElementById("logo").src = "./theme/" + settings.theme + "/icons/android-chrome-192x192.png";
   document.getElementById("theme-style").href = "./theme/" + settings.theme + "/" + cssFilename + ".css";
 };
@@ -126,6 +130,11 @@ const showSettings = () => {
         showSettings();
         applyTheme();
         updateLists();
+      } else if (setting.type === "switch") {
+        settings.switchVar(setting);
+        showSettings();
+        applyTheme();
+        updateLists();
       } else if (setting.type === "select") {
         showSelectModal(setting);
       }
@@ -152,7 +161,7 @@ const showSelectModal = (setting) => {
 };
 
 const showColorModal = () => {
-  const colorValues = ["66", "99", "CC", "FF"];
+  const colorValues = ["00", "66", "AA", "FF"];
   let colorPickerHtml = '<div id="color-picker"><h2>Select Icon Background</h2>';
   colorValues.forEach((r) => {
     colorValues.forEach((g) => {
@@ -199,6 +208,7 @@ const showPage = (id) => {
 const linkToGame = (id, url) => {
   settings.markGameAsPlayed(id);
   updateLists();
+  settings.setLockedOutUntil();
   window.location.href = url;
 };
 
