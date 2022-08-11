@@ -1,4 +1,6 @@
 
+finish binge guard
+remove label prefix
 
 send new item to db
 

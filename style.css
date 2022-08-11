@@ -140,6 +140,10 @@ a:hover {
   color: var(--text-color);
 }
 
+.bold {
+  font-weight: 800;
+}
+
 .page {
   display: none;
   max-width: 500px;
@@ -263,7 +267,8 @@ h2 {
 }
 
 .item-list li a,
-#new-item {
+#new-item,
+.block {
   display: block;
   border-radius: 8px;
   padding: 5px 45px 5px 65px;

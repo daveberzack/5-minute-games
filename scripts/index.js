@@ -1,5 +1,5 @@
 import { games, categories } from "./games.js";
-import { getTimeString } from "./utils.js";
+import { getFormattedTimeFromString } from "./utils.js";
 import settings from "./settings.js";
 import settingsScreen from "./settingsScreen.js";
 import { pinIcon, upIcon, downIcon, unpinIcon, helpIcon, settingsIcon, closeIcon } from "./icons.js";
@@ -7,10 +7,6 @@ import { pinIcon, upIcon, downIcon, unpinIcon, helpIcon, settingsIcon, closeIcon
 const init = async () => {
   await settings.loadSettings();
 
-  if (settings.isLockedOut) {
-    showPage("locked");
-    document.getElementById("lockout-remaining").innerHTML = settings.lockedOutUntil - getTimeString();
-  }
   document.getElementById("new-emoji").addEventListener("focus", function (e) {
     e.target.value = "";
   });
@@ -197,12 +193,18 @@ const hideModal = () => {
 };
 
 const showPage = (id) => {
-  if (id == "settings") showSettings();
-
   document.querySelectorAll(".page").forEach((e) => {
     e.classList.remove("shown");
   });
-  document.getElementById(id).classList.add("shown");
+
+  if (id == "main" && settings.isLockedOut) {
+    showPage("locked");
+    document.getElementById("lockout-ends").innerHTML = getFormattedTimeFromString(settings.lockedOutUntil);
+  } else {
+    document.getElementById(id).classList.add("shown");
+  }
+
+  if (id == "settings") showSettings();
 };
 
 const linkToGame = (id, url) => {
@@ -325,3 +327,4 @@ function addItemListeners() {
 init();
 applyTheme();
 updateLists();
+showPage("main");
