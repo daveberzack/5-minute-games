@@ -1,7 +1,4 @@
 
-finish binge guard
-remove label prefix
-
 send new item to db
 
 run server to avoid cors issues:

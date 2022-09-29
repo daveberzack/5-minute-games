@@ -23,7 +23,8 @@ const settings = {
     this.myGames = JSON.parse(localStorage.getItem("myGames") || "[]");
     this.lockoutTimer = localStorage.getItem("lockoutTimer") || 0;
     this.lockedOutUntil = localStorage.getItem("lockedOutUntil") || 0;
-    this.isLockedOut = getTimeString() < this.lockedOutUntil;
+    this.lockedOutStarting = localStorage.getItem("lockedOutStarting") || 0;
+    this.isLockedOut = getTimeString() < this.lockedOutUntil && getTimeString() > this.lockedOutStarting;
 
     //has played today? if not, reset played games
     this.playedToday = false;
@@ -70,7 +71,6 @@ const settings = {
   movePinnedGame: function (id, change) {
     let listIndex = this.pinnedGames.indexOf(id);
 
-    console.log("move " + id + ":" + change + "..." + listIndex);
     if (listIndex >= 0) {
       const targetGame = this.pinnedGames[listIndex];
       this.pinnedGames[listIndex] = this.pinnedGames[listIndex + change];
@@ -107,8 +107,10 @@ const settings = {
 
   setLockedOutUntil: function () {
     if (this.lockoutTimer > 0) {
-      const newLockeOutUntil = Math.max(this.lockedOutUntil, getTimeString(this.lockoutTimer));
-      localStorage.setItem("lockedOutUntil", newLockeOutUntil);
+      const newLockedOutUntil = Math.max(this.lockedOutUntil, getTimeString(this.lockoutTimer));
+      const newLockedOutStarting = getTimeString(2);
+      localStorage.setItem("lockedOutUntil", newLockedOutUntil);
+      localStorage.setItem("lockedOutStarting", newLockedOutStarting);
     }
   },
 

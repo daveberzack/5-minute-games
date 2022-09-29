@@ -173,7 +173,6 @@ const showColorModal = () => {
   document.getElementById("color-picker").addEventListener("click", function (e) {
     const color = e.target.getAttribute("data-color");
     if (color) {
-      console.log("color", color);
       const emojiEl = document.getElementById("new-emoji");
       emojiEl.setAttribute("data-bg", color);
       emojiEl.style.backgroundColor = color;
@@ -188,7 +187,6 @@ const showModal = (content) => {
 };
 
 const hideModal = () => {
-  console.log("hide");
   document.getElementById("modal-wrapper").classList.remove("modal-shown");
 };
 

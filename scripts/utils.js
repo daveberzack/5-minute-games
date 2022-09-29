@@ -19,6 +19,7 @@ const getTimeString = function (offset = 0) {
 const getFormattedTimeFromString = function (str) {
   let hour = str.substring(8, 10) * 1;
   if (hour > 12) hour -= 12;
+  if (hour == 0) hour = 12;
   const min = str.substring(10, 12);
   return hour + ":" + min;
 };
