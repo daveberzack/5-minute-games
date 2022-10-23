@@ -5,6 +5,10 @@ import settingsScreen from "./settingsScreen.js";
 import { pinIcon, upIcon, downIcon, unpinIcon, helpIcon, settingsIcon, closeIcon } from "./icons.js";
 
 const init = async () => {
+  if (navigator && navigator.serviceWorker) {
+    navigator.serviceWorker.register("../sw.js");
+  }
+
   await settings.loadSettings();
 
   document.getElementById("new-emoji").addEventListener("focus", function (e) {
@@ -37,6 +41,8 @@ const init = async () => {
       };
       settings.addGame(newGame);
 
+      gtag("event", "addGame", { url: urlEl.value, name: nameEl.value });
+
       updateLists();
 
       //clear form
@@ -49,9 +55,6 @@ const init = async () => {
 
       showModal(`<p class="modal-message">Item Added</p>`);
       setTimeout(hideModal, 2000);
-
-      // document.getElementById("new-item-added").classList.remove("hidden");
-      // setTimeout(() => document.getElementById("new-item-added").classList.add("hidden"), 2000);
     }
   });
 
@@ -205,7 +208,9 @@ const showPage = (id) => {
   if (id == "settings") showSettings();
 };
 
-const linkToGame = (id, url) => {
+const linkToGame = (id, url, name) => {
+  gtag("event", "linkToGame", { id, url, name });
+
   settings.markGameAsPlayed(id);
   updateLists();
   settings.setLockedOutUntil();
@@ -238,7 +243,7 @@ const formatListing = (game, isPinned, isPlayed, listIndex) => {
 
   return `
         <li class="${settings.markPlayed && isPlayed ? "played" : ""}">
-            <a class="link" href="${game.url}" data-id="${game.id}">
+            <a class="link" href="${game.url}" data-id="${game.id}" data-name="${game.name}">
                 ${gameIconEl}
                 <h3>${game.name}</h3>
                 <p>${game.caption}</p>
@@ -289,7 +294,7 @@ function addItemListeners() {
   [...document.querySelectorAll(".link")].forEach(function (item) {
     item.addEventListener("click", function (e) {
       e.preventDefault();
-      linkToGame(item.getAttribute("data-id"), item.getAttribute("href"));
+      linkToGame(item.getAttribute("data-id"), item.getAttribute("href"), item.getAttribute("data-name"));
     });
   });
 

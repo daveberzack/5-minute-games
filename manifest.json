@@ -1,7 +1,39 @@
 {
   "name": "5 Minute Games",
-  "short_name": "5MinGames",
-  "theme_color": "#FFFFFF",
+  "short_name": "5 Minute Games",
+  "icons": [
+    {
+      "src": "/img/icons/192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/img/icons/32.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "/img/icons/512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/img/icons/512maskable.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/img/icons/128maskable.png",
+      "type": "image/png",
+      "sizes": "128x128",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "display": "fullscreen",
+  "scope": "/",
   "background_color": "#FFFFFF",
-  "display": "minimal-ui"
+  "theme_color": "#000000",
+  "description": "All the best games in one place"
 }

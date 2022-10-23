@@ -108,7 +108,12 @@ const settings = {
   setLockedOutUntil: function () {
     if (this.lockoutTimer > 0) {
       const newLockedOutUntil = Math.max(this.lockedOutUntil, getTimeString(this.lockoutTimer));
-      const newLockedOutStarting = getTimeString(2);
+
+      const d = new Date();
+      let seconds = d.getSeconds();
+      let minutesGracePeriod = 1;
+      if (seconds > 45) minutesGracePeriod = 2;
+      const newLockedOutStarting = getTimeString(minutesGracePeriod);
       localStorage.setItem("lockedOutUntil", newLockedOutUntil);
       localStorage.setItem("lockedOutStarting", newLockedOutStarting);
     }

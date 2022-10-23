@@ -1,7 +1,5 @@
 
-send new item to db
 
 run server to avoid cors issues:
 http-server -c-1
-
 http://192.168.86.29:8080
