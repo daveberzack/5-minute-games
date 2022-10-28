@@ -2,8 +2,16 @@ const games = [
   /////////////// NYT Games ///////////////////////
 
   {
+    id: "0",
+    category: 0,
+    name: "Hocus Focus",
+    url: "https://www.hocusfocus.fun",
+    image: "hocus.png",
+    caption: "Solve the riddle of a hidden picture",
+  },
+  {
     id: "1",
-    category: 1,
+    category: 0,
     name: "Wordle",
     url: "https://www.nytimes.com/games/wordle/index.html",
     image: "wordle.png",
@@ -11,7 +19,7 @@ const games = [
   },
   {
     id: "2",
-    category: 3,
+    category: 0,
     name: "The Mini",
     url: "https://www.nytimes.com/crosswords/game/mini",
     image: "mini.png",
@@ -94,7 +102,7 @@ const games = [
   },
   {
     id: "12",
-    category: 3,
+    category: 0,
     name: "Crosswordle",
     url: "https://crosswordle.vercel.app/",
     image: "crosswordle.png",
@@ -178,7 +186,7 @@ const games = [
 
   {
     id: "22",
-    category: 2,
+    category: 0,
     name: "Heardle",
     url: "https://www.spotify.com/heardle/",
     image: "heardle.png",
@@ -218,7 +226,7 @@ const games = [
   },
   {
     id: "27",
-    category: 2,
+    category: 0,
     name: "Framed",
     url: "https://framed.wtf/",
     image: "framed.png",
@@ -263,7 +271,7 @@ const games = [
   },
   {
     id: "32",
-    category: 4,
+    category: 0,
     name: "Nonograms",
     url: "https://www.puzzle-nonograms.com/",
     image: "nonograms.png",
@@ -298,7 +306,7 @@ const games = [
   },
   {
     id: "36",
-    category: 6,
+    category: 0,
     name: "The Wiki Game",
     url: "https://www.thewikigame.com/group",
     image: "wikigame.png",
@@ -376,6 +384,11 @@ const games = [
 ];
 
 const categories = [
+  {
+    id: "0",
+    name: "Editor's Picks",
+    games: [],
+  },
   {
     id: "1",
     name: "Word Guessing games",

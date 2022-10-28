@@ -26,6 +26,11 @@ const settings = {
     this.lockedOutStarting = localStorage.getItem("lockedOutStarting") || 0;
     this.isLockedOut = getTimeString() < this.lockedOutUntil && getTimeString() > this.lockedOutStarting;
 
+    console.log(this.isLockedOut);
+    console.log(" ():" + getTimeString());
+    console.log("unt:" + this.lockedOutUntil);
+    console.log("stt:" + this.lockedOutStarting);
+
     //has played today? if not, reset played games
     this.playedToday = false;
     const todayString = getTodayString();
@@ -110,10 +115,8 @@ const settings = {
       const newLockedOutUntil = Math.max(this.lockedOutUntil, getTimeString(this.lockoutTimer));
 
       const d = new Date();
-      let seconds = d.getSeconds();
-      let minutesGracePeriod = 1;
-      if (seconds > 45) minutesGracePeriod = 2;
-      const newLockedOutStarting = getTimeString(minutesGracePeriod);
+      let secondsGracePeriod = 10;
+      const newLockedOutStarting = getTimeString(secondsGracePeriod);
       localStorage.setItem("lockedOutUntil", newLockedOutUntil);
       localStorage.setItem("lockedOutStarting", newLockedOutStarting);
     }

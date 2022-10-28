@@ -134,19 +134,19 @@ const settingsScreen = [
         icon: "img/settings/lockout0.png",
       },
       {
-        value: "15",
+        value: "900",
         label: "15 Minutes",
         description: "Page is disabled after clicking a link",
         icon: "img/settings/lockout15.png",
       },
       {
-        value: "30",
+        value: "1800",
         label: "30 Minutes",
         description: "Page is disabled after clicking a link",
         icon: "img/settings/lockout30.png",
       },
       {
-        value: "60",
+        value: "3600",
         label: "60 Minutes",
         description: "Page is disabled after clicking a link",
         icon: "img/settings/lockout60.png",
