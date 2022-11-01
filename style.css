@@ -546,6 +546,7 @@ input {
   margin: 20px auto;
   max-width: 270px;
   line-height: 1.3;
+  color: var(--text-color);
 }
 #lockout-remaining {
   font-weight: 800;
