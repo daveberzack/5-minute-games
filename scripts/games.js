@@ -108,6 +108,15 @@ const games = [
     image: "crosswordle.png",
     caption: "Fill in a valid Wordle game",
   },
+
+  {
+    id: "44",
+    category: 1,
+    name: "Crosswordle",
+    url: "https://crosswordle.serializer.ca/",
+    image: "crosswordle2.png",
+    caption: "Guess a small crossword",
+  },
   {
     id: "13",
     category: 1,
