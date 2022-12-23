@@ -1,10 +1,13 @@
 import { games, categories } from "./games.js";
-import { getFormattedTimeFromString } from "./utils.js";
+import { getFormattedTimeFromString, logAddLink, logClickLink, logPageView } from "./utils.js";
 import settings from "./settings.js";
+import messages from "./messages.js";
 import settingsScreen from "./settingsScreen.js";
 import { pinIcon, upIcon, downIcon, unpinIcon, helpIcon, settingsIcon, closeIcon } from "./icons.js";
 
 const init = async () => {
+  logPageView();
+
   if (navigator && navigator.serviceWorker) {
     navigator.serviceWorker.register("../sw.js");
   }
@@ -29,7 +32,7 @@ const init = async () => {
 
     const error = validateNewItem();
     if (error) {
-      showModal(`<p class="modal-message">${error}</p>`);
+      showModal(`<p class="modal-message">${error}</p>`, "OK");
     } else {
       //add new game
       const newGame = {
@@ -41,7 +44,7 @@ const init = async () => {
       };
       settings.addGame(newGame);
 
-      gtag("event", "addGame", { url: urlEl.value, name: nameEl.value });
+      logAddLink(urlEl.value, nameEl.value,captionEl.value);
 
       updateLists();
 
@@ -53,9 +56,10 @@ const init = async () => {
       emojiEl.setAttribute("data-bg", "#999999");
       emojiEl.style.backgroundColor = "#999999";
 
-      showModal(`<p class="modal-message">Item Added</p>`);
-      setTimeout(hideModal, 2000);
+      showModal(`<h2>Item Added</h2>`,"OK");
+      setTimeout(hideModal, 3000);
     }
+
   });
 
   document.getElementById("help-button").addEventListener("click", function () {
@@ -79,9 +83,20 @@ const init = async () => {
   document.getElementById("modal-wrapper").addEventListener("click", function (e) {
     hideModal();
   });
+  document.getElementById("modal-button").addEventListener("click", function (e) {
+    hideModal();
+  });
   document.getElementById("modal-block").addEventListener("click", function (e) {
     e.stopPropagation();
   });
+
+  
+  const message = messages.getMessageToShow();
+  if (message){
+    const messageHtml = `<h2>${message.title}</h2>${message.body}`;
+    showModal(messageHtml, "OK");
+  }
+  
 };
 
 const validateNewItem = () => {
@@ -184,9 +199,16 @@ const showColorModal = () => {
   });
 };
 
-const showModal = (content) => {
+const showModal = (content, buttonText) => {
   document.getElementById("modal-wrapper").classList.add("modal-shown");
-  document.getElementById("modal-block").innerHTML = content;
+  document.getElementById("modal-content").innerHTML = content;
+  if (buttonText) {
+    document.getElementById("modal-button").classList.add("shown");
+    document.getElementById("modal-button").innerHTML = buttonText;
+  }
+  else {
+    document.getElementById("modal-button").classList.remove("shown");
+  }
 };
 
 const hideModal = () => {
@@ -209,7 +231,7 @@ const showPage = (id) => {
 };
 
 const linkToGame = (id, url, name) => {
-  gtag("event", "linkToGame", { id, url, name });
+  logClickLink(id, url, name);
 
   settings.markGameAsPlayed(id);
   updateLists();

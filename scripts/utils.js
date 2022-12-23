@@ -31,4 +31,28 @@ const getFormattedTimeFromString = function (str) {
   return hour + ":" + min;
 };
 
-export { getTimeString, getTodayString, getFormattedTimeFromString };
+async function sendAnalytics(type, data) {
+  const url = `https://dave-simplecrud.herokuapp.com/${type}`;
+  await fetch(url, {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+}
+
+async function logPageView() {
+  const isTouch = window.ontouchstart !== undefined;
+  sendAnalytics("pageview", { page: "5minutegames", url: window.location.href, userAgent: navigator.userAgent, width: window.innerWidth, height: window.innerHeight, touch: isTouch });
+}
+
+async function logAddLink(url, name, description) {
+  sendAnalytics("fiveminuteadd", { url, name, description });
+}
+async function logClickLink(id, url, name) {
+  sendAnalytics("fiveminuteclick", { id, url, name });
+}
+
+export { getTimeString, getTodayString, getFormattedTimeFromString, logPageView, logAddLink, logClickLink};
