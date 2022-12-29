@@ -63,7 +63,7 @@ viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="pres
  <polygon points="289.391,222.609 289.391,0 222.609,0 222.609,222.609 0,222.609 0,289.391 222.609,289.391 222.609,512 
    289.391,512 289.391,289.391 512,289.391 512,222.609 		"/>
 </svg></p>
-<p>At the bottom of the page, add your own links other games and useful websites</p>
+<p>At the bottom of the page, add your own links to other games and useful websites</p>
 `
     },
   ],
