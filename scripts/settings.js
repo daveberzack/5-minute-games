@@ -1,22 +1,38 @@
 import { getTodayString, getTimeString } from "./utils.js";
+import { games } from "./games.js";
 
 const settings = {
+  userId: null,
   theme: "",
   isDark: false,
   isLocked: false,
+  openLinkInNewTab:false,
   markPlayed: false,
   playedToday: false,
   pinnedGames: [],
-  playedGames: [],
+  gamesPlayedToday: [],
+  gamesPlayedEver: [],
   myGames: [],
   lockoutTimer: 0,
   lockedOutUntil: 0,
   isLockedOut: false,
 
   loadSettings: function () {
+    //get version of last time played, and remember current version
+    this.versionLastTimePlayed = localStorage.getItem("version");
+    localStorage.setItem("version","1");
+
+    this.userId = localStorage.getItem("userId") || null;
+    if (!this.userId){
+      this.userId = Math.random().toString(36).substr(2, 16);
+      localStorage.setItem("userId",this.userId);
+    }
+    
+
     //get theme and locked
     this.theme = localStorage.getItem("theme")?.trim() || "ducky";
     this.isLocked = localStorage.getItem("isLocked")?.trim() == 1 || false;
+    this.openLinkInNewTab = localStorage.getItem("openLinkInNewTab")?.trim() == 1 || false;
     this.isDark = localStorage.getItem("isDark")?.trim() == 1 || false;
     this.markPlayed = localStorage.getItem("markPlayed")?.trim() == 1 || false;
     this.hideUnpinned = localStorage.getItem("hideUnpinned")?.trim() == 1 || false;
@@ -33,15 +49,19 @@ const settings = {
     if (todayString == lastOpenedDate) {
       this.playedToday = true;
     } else {
-      this.playedGames = [];
+      this.gamesPlayedToday = [];
       localStorage.setItem("lastOpenedDate", todayString);
-      localStorage.setItem("playedGames", "");
+      localStorage.setItem("gamesPlayedToday", "");
     }
 
-    //get played games
-    this.playedGames = [];
-    const playedGameString = localStorage.getItem("playedGames")?.trim();
-    if (playedGameString && playedGameString != "") this.playedGames = playedGameString.split(",");
+    //get played games (today and all time)
+    this.gamesPlayedToday = [];
+    const gamesPlayedTodayString = localStorage.getItem("gamesPlayedToday")?.trim();
+    if (gamesPlayedTodayString && gamesPlayedTodayString != "") this.gamesPlayedToday = gamesPlayedTodayString.split(",");
+    this.gamesPlayedEver = [];
+    const gamesPlayedEverString = localStorage.getItem("gamesPlayedEver")?.trim();
+    if (gamesPlayedEverString && gamesPlayedEverString != "") this.gamesPlayedEver = gamesPlayedEverString.split(",");
+    console.log(this.gamesPlayedEver);
 
     //get pinned games
     this.pinnedGames = [];
@@ -80,8 +100,23 @@ const settings = {
   },
 
   markGameAsPlayed: function (id) {
-    this.playedGames.push(id + "");
-    localStorage.setItem("playedGames", this.playedGames.join(","));
+    if (!this.gamesPlayedToday.includes(id) ){
+      this.gamesPlayedToday.push(id + "");
+    }
+    localStorage.setItem("gamesPlayedToday", this.gamesPlayedToday.join(","));
+    
+    this.markGameAsNotNew(id);
+  },
+
+  markAllGamesAsNotNew: function () {
+    games.forEach( g => this.markGameAsNotNew(g.id) );
+  },
+  
+  markGameAsNotNew: function (id) {
+    if (!this.gamesPlayedEver.includes(id) ){
+      this.gamesPlayedEver.push(id + "");
+    }
+    localStorage.setItem("gamesPlayedEver", this.gamesPlayedEver.join(","));
   },
 
   addGame(game) {

@@ -66,6 +66,20 @@ viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="pres
 <p>At the bottom of the page, add your own links to other games and useful websites</p>
 `
     },
+
+    {
+      id:2,
+      title:`New Features`,
+      body:
+`
+<p>25 new games are coming soon!</p>
+<p>I added a feature that marks new games. If you've already tried them, just click the link to unmark them all.</p>
+<p>Also, there's a new toggle in Settings to open links in a new tab, if you prefer that.</p>
+<p>This site is an indie project. Thanks for coming along for the ride!</p>
+<p>If you have any other feature requests, game suggestions or other comments, please email me at <a href="mailto:dave@5minute.games" target="_blank">dave@5minute.games</a></p>
+`
+    },
+
   ],
 
 };

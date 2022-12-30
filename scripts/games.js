@@ -599,11 +599,6 @@ const categories = [
     games: [],
   },
   {
-    id: "9",
-    name: "New",
-    games: [],
-  },
-  {
     id: "1",
     name: "Word Guessing games",
     games: [],

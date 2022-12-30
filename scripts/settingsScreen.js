@@ -64,6 +64,26 @@ const settingsScreen = [
   },
 
   {
+    name: "openLinkInNewTab",
+    type: "toggle",
+    labelPrefix: "",
+    options: [
+      {
+        value: "0",
+        label: "Single Tab",
+        description: "Links will open in this tab",
+        icon: "img/settings/singletab.png",
+      },
+      {
+        value: "1",
+        label: "Multiple Tabs",
+        description: "Each link will open in a new tab",
+        icon: "img/settings/multitab.png",
+      },
+    ],
+  },
+
+  {
     name: "isLocked",
     type: "toggle",
     labelPrefix: "",
@@ -84,6 +104,26 @@ const settingsScreen = [
   },
 
   {
+    name: "hideUnpinned",
+    type: "toggle",
+    labelPrefix: "",
+    options: [
+      {
+        value: "0",
+        label: "Unpinned Games Shown",
+        description: "See the entire list of games",
+        icon: "img/settings/shown.png",
+      },
+      {
+        value: "1",
+        label: "Unpinned Games Hidden",
+        description: "Only pinned and new games are shown",
+        icon: "img/settings/hidden.png",
+      },
+    ],
+  },
+  
+  {
     name: "markPlayed",
     type: "toggle",
     labelPrefix: "",
@@ -102,26 +142,7 @@ const settingsScreen = [
       },
     ],
   },
-
-  {
-    name: "hideUnpinned",
-    type: "toggle",
-    labelPrefix: "",
-    options: [
-      {
-        value: "0",
-        label: "Unpinned Games Shown",
-        description: "See the entire list of games",
-        icon: "img/settings/shown.png",
-      },
-      {
-        value: "1",
-        label: "Unpinned Games Hidden",
-        description: "Only the games you like are shown",
-        icon: "img/settings/hidden.png",
-      },
-    ],
-  },
+  
   {
     name: "lockoutTimer",
     type: "switch",

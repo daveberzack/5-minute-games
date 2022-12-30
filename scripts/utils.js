@@ -43,9 +43,9 @@ async function sendAnalytics(type, data) {
   });
 }
 
-async function logPageView() {
+async function logPageView(userId) {
   const isTouch = window.ontouchstart !== undefined;
-  sendAnalytics("pageview", { page: "5minutegames", url: window.location.href, userAgent: navigator.userAgent, width: window.innerWidth, height: window.innerHeight, touch: isTouch });
+  sendAnalytics("pageview", { page: "5minutegames", url: window.location.href, userAgent: navigator.userAgent, width: window.innerWidth, height: window.innerHeight, touch: isTouch, user: userId });
 }
 
 async function logAddLink(url, name, description) {

@@ -6,13 +6,13 @@ import settingsScreen from "./settingsScreen.js";
 import { pinIcon, upIcon, downIcon, unpinIcon, helpIcon, settingsIcon, closeIcon } from "./icons.js";
 
 const init = async () => {
-  logPageView();
 
   if (navigator && navigator.serviceWorker) {
     navigator.serviceWorker.register("../sw.js");
   }
-
+  
   await settings.loadSettings();
+  logPageView(settings.userId);
 
   document.getElementById("new-emoji").addEventListener("focus", function (e) {
     e.target.value = "";
@@ -236,11 +236,16 @@ const linkToGame = (id, url, name) => {
   settings.markGameAsPlayed(id);
   updateLists();
   settings.setLockedOutUntil();
-  window.location.href = url;
+  if (settings.openLinkInNewTab){
+    window.open(url, "game"+id);
+  }
+  else {
+    window.location.href = url;
+  }
 };
 
-const formatListing = (game, isPinned, isPlayed, listIndex) => {
-  //console.log({ game, isPinned, isPlayed, listIndex });
+const formatListing = (game, listIndex, isPinned, isPlayedToday, isNew) => {
+  //console.log({ game, isPinned, isPlayedToday, listIndex });
   let buttonsHtml = "";
   if (!settings.isLocked) {
     if (isPinned) {
@@ -262,13 +267,18 @@ const formatListing = (game, isPinned, isPlayed, listIndex) => {
   if (game.image) {
     gameIconEl = `<img class="icon" src="./img/games/${game.image}"/>`;
   }
+  let newHtml = "";
+  if (isNew) {
+    newHtml = `<img class="new-ribbon" src="./img/new.png"></img>`;
+  }
 
   return `
-        <li class="${settings.markPlayed && isPlayed ? "played" : ""}">
+        <li class="${settings.markPlayed && isPlayedToday ? "played" : ""}">
             <a class="link" href="${game.url}" data-id="${game.id}" data-name="${game.name}">
                 ${gameIconEl}
                 <h3>${game.name}</h3>
                 <p>${game.caption}</p>
+                ${newHtml}
             </a>
             ${buttonsHtml}
         </li>
@@ -278,28 +288,42 @@ const formatListing = (game, isPinned, isPlayed, listIndex) => {
 const updateLists = () => {
   let html = "";
 
+  //if any new games, show message
+  let anyNewGames = false;
+  games.forEach((g) => {
+    const isPlayedEver = settings.gamesPlayedEver.includes(g?.id);
+    if (!isPlayedEver) anyNewGames = true;
+  });
+  if (anyNewGames) {
+    html +=`<div id="new-message"><h2>You have new games!</h2><p>They're each tagged with a red label to help track which ones you've tried.</p><p>After you click a link, it will be un-tagged.</p><p><a id="untag-all-link" href="#">Click here</a> to untag all of them.</p></div>`;
+  }
+
   //add all pinned games
   html += '<ul class="item-list">';
   settings.pinnedGames.forEach((p, i) => {
     let game = games.concat(settings.myGames).find((g) => g.id == p);
-    const isPlayed = settings.playedGames.includes(game?.id);
-    html += formatListing(game, true, isPlayed, i);
+    const isPlayedToday = settings.gamesPlayedToday.includes(game?.id);
+    const isPlayedEver = settings.gamesPlayedEver.includes(game?.id);
+    html += formatListing(game, i, true, isPlayedToday, !isPlayedEver);
   });
   html += "</ul>";
 
   //add other games by category
-  if (!settings.hideUnpinned) {
     categories.forEach((c) => {
-      html += "<h2>" + c.name + '</h2><ul class="item-list">';
+      let categoryHtml = "";
       c.games
         .filter((g) => !settings.pinnedGames.includes(g?.id)) //exclude pinned games
         .forEach((g, i) => {
-          const isPlayed = settings.playedGames.includes(g?.id);
-          html += formatListing(g, false, isPlayed, i);
+          const isPlayedToday = settings.gamesPlayedToday.includes(g?.id);
+          const isPlayedEver = settings.gamesPlayedEver.includes(g?.id);
+          const showThisGame = !settings.hideUnpinned || !isPlayedEver;
+          if (showThisGame) {
+            categoryHtml += formatListing(g, i, false, isPlayedToday, !isPlayedEver);  
+          }
         });
-      html += "</ul>";
+      
+      if (categoryHtml) html += "<h2>" + c.name + '</h2><ul class="item-list">'+ categoryHtml +"</ul>";
     });
-  }
 
   document.getElementById("games").innerHTML = html;
 
@@ -308,6 +332,12 @@ const updateLists = () => {
   } else {
     document.getElementById("add-form").classList.remove("hidden");
   }
+
+  document.getElementById("untag-all-link").addEventListener("click", function (e) {
+    e.preventDefault();
+    settings.markAllGamesAsNotNew();
+    updateLists();
+  });
 
   addItemListeners();
 };
@@ -347,6 +377,7 @@ function addItemListeners() {
       updateLists();
     });
   });
+  
 }
 
 init();
