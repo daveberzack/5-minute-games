@@ -21,6 +21,14 @@ const init = async () => {
   document.getElementById("change-color").addEventListener("click", function (e) {
     showColorModal();
   });
+  alert("!"+ document.getElementById("version"));
+  document.getElementById("version").addEventListener("click", function () {
+    alert("!");
+    if (confirm("Clear all your game data?")) {
+      localStorage.clear();
+    }
+  });
+
 
   document.getElementById("add-form").addEventListener("submit", function (e) {
     e.preventDefault();

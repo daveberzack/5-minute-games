@@ -158,6 +158,10 @@ footer {
   text-align: center;
   font-size: 14px;
 }
+footer a {
+  font-weight: normal;
+  text-decoration: none;
+}
 
 .shown {
   display: block;
@@ -365,6 +369,9 @@ h2 {
 }
 #new-message {
   text-align: center;
+}
+#new-message p {
+  color: var(--text-color);
 }
 
 #new-message a {
