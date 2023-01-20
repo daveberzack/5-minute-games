@@ -5,7 +5,7 @@ https://www.reddit.com/?ad=MTYwMjQ4ODIyNDExODQyODA4MnwyMDIzLTAxLTMxVDA1OjAwOjAwf
 {page:"hocusfocus", createdAt:{$gte:ISODate("2022-12-27"), $lt:ISODate("2022-12-28")}}
 {createdAt:{$gte:ISODate("2023-01-27"), $lt:ISODate("2023-12-28")}}
 
-{page: {$regex : "hocusfocus"}, url: {$regex : "reddit"}, createdAt:{$gte:ISODate("2022-12-27"), $lt:ISODate("2022-12-28")}}
+{page: {$regex : "hocusfocus"}, url: {$regex : "reddit"}, createdAt:{$gte:ISODate("2023-01-27"), $lt:ISODate("2023-12-28")}}
 
 
 run server to avoid cors issues:
