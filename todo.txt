@@ -1,5 +1,5 @@
 
-ad test link:
+ad test link
 https://www.reddit.com/?ad=MTYwMjQ4ODIyNDExODQyODA4MnwyMDIzLTAxLTMxVDA1OjAwOjAwfGMwZjdjYjAzOTIzNGJmOGMzM2Y4ODI0MDE1OTFjYTgwMmU1MzgyOWI%3D
 
 {page:"hocusfocus", createdAt:{$gte:ISODate("2022-12-27"), $lt:ISODate("2022-12-28")}}
