@@ -80,7 +80,20 @@ viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="pres
 `
     },
 
+    {
+      id:3,
+      title:`New Games!`,
+      body:
+  `<p>I added 25 new games!</p>
+  <p>If you've been playing for a while, these might not get flagged with NEW banners for you</p>
+  <p>Just show all the links and browse the list. There's some real gems here!</p>
+  <p>I'm glad you're enjoying this site. If you have other feature requests, game suggestions or other comments, please email me at <a href="mailto:dave@5minute.games" target="_blank">dave@5minute.games</a> </p>
+  `
+    },
+
   ],
+
+  
 
 };
 

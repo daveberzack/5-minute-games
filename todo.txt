@@ -2,7 +2,7 @@
 ad test link
 https://www.reddit.com/?ad=MTYwMjQ4ODIyNDExODQyODA4MnwyMDIzLTAxLTMxVDA1OjAwOjAwfGMwZjdjYjAzOTIzNGJmOGMzM2Y4ODI0MDE1OTFjYTgwMmU1MzgyOWI%3D
 
-{page:"hocusfocus", createdAt:{$gte:ISODate("2022-12-27"), $lt:ISODate("2022-12-28")}}
+{page:"5minutegames", createdAt:{$gte:ISODate("2023-01-25"), $lt:ISODate("2023-12-28")}}
 {createdAt:{$gte:ISODate("2023-01-27"), $lt:ISODate("2023-12-28")}}
 
 {page: {$regex : "hocusfocus"}, url: {$regex : "reddit"}, createdAt:{$gte:ISODate("2023-01-27"), $lt:ISODate("2023-12-28")}}

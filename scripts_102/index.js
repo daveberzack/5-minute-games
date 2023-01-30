@@ -339,7 +339,7 @@ const updateLists = () => {
     document.getElementById("add-form").classList.remove("hidden");
   }
 
-  document.getElementById("untag-all-link").addEventListener("click", function (e) {
+  document.getElementById("untag-all-link")?.addEventListener("click", function (e) {
     e.preventDefault();
     settings.markAllGamesAsNotNew();
     updateLists();
