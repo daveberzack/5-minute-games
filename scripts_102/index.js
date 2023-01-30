@@ -21,9 +21,7 @@ const init = async () => {
   document.getElementById("change-color").addEventListener("click", function (e) {
     showColorModal();
   });
-  alert("!"+ document.getElementById("version"));
   document.getElementById("version").addEventListener("click", function () {
-    alert("!");
     if (confirm("Clear all your game data?")) {
       localStorage.clear();
     }
@@ -341,7 +339,7 @@ const updateLists = () => {
     document.getElementById("add-form").classList.remove("hidden");
   }
 
-  document.getElementById("untag-all-link").addEventListener("click", function (e) {
+  document.getElementById("untag-all-link")?.addEventListener("click", function (e) {
     e.preventDefault();
     settings.markAllGamesAsNotNew();
     updateLists();

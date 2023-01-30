@@ -398,7 +398,7 @@ const games = [
   
   {
     id: "45",
-    category: 9,
+    category: 6,
     name: "Trivia V",
     url: "https://triviav.com/",
     image: "triviav.png",
@@ -406,7 +406,7 @@ const games = [
   },  
   {
     id: "46",
-    category: 9,
+    category: 6,
     name: "Adoorable",
     url: "https://ncase.me/door/",
     image: "door.png",
@@ -414,7 +414,7 @@ const games = [
   },  
   {
     id: "47",
-    category: 9,
+    category: 6,
     name: "99 Balls",
     url: "https://www.crazygames.com/game/99-balls",
     image: "99balls.png",
@@ -422,7 +422,7 @@ const games = [
   },  
   {
     id: "48",
-    category: 9,
+    category: 2,
     name: "Unlockle",
     url: "https://unlockle.app/",
     image: "unlockle.png",
@@ -430,7 +430,7 @@ const games = [
   },  
   {
     id: "49",
-    category: 9,
+    category: 1,
     name: "Pixletters",
     url: "https://pixletters.com/",
     image: "pixletters.png",
@@ -438,7 +438,7 @@ const games = [
   },  
   {
     id: "50",
-    category: 9,
+    category: 5,
     name: "Huestry",
     url: "https://huestery.com/",
     image: "huestry.png",
@@ -446,7 +446,7 @@ const games = [
   },  
   {
     id: "51",
-    category: 9,
+    category: 3,
     name: "Blockables",
     url: "https://www.blockables.app/",
     image: "blockables.png",
@@ -454,7 +454,7 @@ const games = [
   },
   {
     id: "52",
-    category: 9,
+    category: 5,
     name: "Linkr",
     url: "https://www.playlinkr.net/",
     image: "linkr.png",
@@ -462,7 +462,7 @@ const games = [
   },
   {
     id: "53",
-    category: 9,
+    category: 5,
     name: "Set",
     url: "https://www.setgame.com/set/puzzle",
     image: "set.png",
@@ -470,7 +470,7 @@ const games = [
   },
   {
     id: "54",
-    category: 9,
+    category: 2,
     name: "Murdle",
     url: "https://murdle.com/",
     image: "murdle.png",
@@ -478,7 +478,7 @@ const games = [
   },
   {
     id: "55",
-    category: 9,
+    category: 2,
     name: "Polygonle",
     url: "https://polygonle.com/",
     image: "polygonle.png",
@@ -486,7 +486,7 @@ const games = [
   },
   {
     id: "56",
-    category: 9,
+    category: 5,
     name: "Encase",
     url: "https://thexp.itch.io/encase",
     image: "encase.png",
@@ -494,7 +494,7 @@ const games = [
   },
   {
     id: "57",
-    category: 9,
+    category: 5,
     name: "Fortknight",
     url: "https://acenturyandabit.github.io/fortknight/",
     image: "fortknight.png",
@@ -502,7 +502,7 @@ const games = [
   },
   {
     id: "58",
-    category: 9,
+    category: 6,
     name: "Snake Runner",
     url: "http://www.askforgametask.com/html5/games/snake/",
     image: "snakerunner.png",
@@ -510,7 +510,7 @@ const games = [
   },
   {
     id: "59",
-    category: 9,
+    category: 5,
     name: "Matchsticks",
     url: "https://www.askforgametask.com/html5/games/matchsticks/",
     image: "matchsticks.png",
@@ -518,7 +518,7 @@ const games = [
   },
   {
     id: "61",
-    category: 9,
+    category: 3,
     name: "Hurdle",
     url: "http://www.thistledo.tech/",
     image: "hurdle.png",
@@ -526,7 +526,7 @@ const games = [
   },
   {
     id: "62",
-    category: 9,
+    category: 3,
     name: "Cell Tower",
     url: "https://www.andrewt.net/puzzles/cell-tower/",
     image: "celltower.png",
@@ -534,7 +534,7 @@ const games = [
   },
   {
     id: "63",
-    category: 9,
+    category: 2,
     name: "Tradle",
     url: "https://oec.world/en/tradle/",
     image: "tradle.png",
@@ -542,7 +542,7 @@ const games = [
   },
   {
     id: "64",
-    category: 9,
+    category: 2,
     name: "loldle",
     url: "https://loldle.net/",
     image: "loldle.png",
@@ -550,7 +550,7 @@ const games = [
   },
   {
     id: "65",
-    category: 9,
+    category: 1,
     name: "Duotrigordle",
     url: "https://duotrigordle.com/",
     image: "duotrigordle.png",
@@ -558,7 +558,7 @@ const games = [
   },
   {
     id: "66",
-    category: 9,
+    category: 6,
     name: "Sand Spiel",
     url: "https://sandspiel.club/",
     image: "sandspiel.png",
@@ -566,7 +566,7 @@ const games = [
   },
   {
     id: "67",
-    category: 9,
+    category: 4,
     name: "2048",
     url: "https://play2048.co/",
     image: "2048.png",
@@ -574,7 +574,7 @@ const games = [
   },
   {
     id: "68",
-    category: 9,
+    category: 6,
     name: "Market Boss",
     url: "https://www.miniplay.com/market-boss",
     image: "market.png",
@@ -582,7 +582,7 @@ const games = [
   },
   {
     id: "69",
-    category: 9,
+    category: 6,
     name: "Bubble Shooter",
     url: "https://games.washingtonpost.com/en-us/games/bubble-shooter",
     image: "bubbleshooter.png",

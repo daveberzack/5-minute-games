@@ -1,12 +1,12 @@
 
-{page:"hocusfocus", createdAt:{$gte:ISODate("2022-12-27"), $lt:ISODate("2022-12-28")}}
+ad test link
+https://www.reddit.com/?ad=MTYwMjQ4ODIyNDExODQyODA4MnwyMDIzLTAxLTMxVDA1OjAwOjAwfGMwZjdjYjAzOTIzNGJmOGMzM2Y4ODI0MDE1OTFjYTgwMmU1MzgyOWI%3D
 
-{page: {$regex : "hocusfocus"}, url: {$regex : "reddit"}, createdAt:{$gte:ISODate("2022-12-27"), $lt:ISODate("2022-12-28")}}
+{page:"5minutegames", createdAt:{$gte:ISODate("2023-01-25"), $lt:ISODate("2023-12-28")}}
+{createdAt:{$gte:ISODate("2023-01-27"), $lt:ISODate("2023-12-28")}}
+
+{page: {$regex : "hocusfocus"}, url: {$regex : "reddit"}, createdAt:{$gte:ISODate("2023-01-27"), $lt:ISODate("2023-12-28")}}
 
 
 run server to avoid cors issues:
 http-server -c-1
-http://192.168.86.29:8080
-
-
-0,1,2,3,4,5,6,7,8,9,10,11,12,44,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,30,31,32,33,34,35,36,37,38,39,40,41,42,43,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,61,62,63,64,65,66,67,68,69

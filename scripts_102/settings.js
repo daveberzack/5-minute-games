@@ -61,7 +61,6 @@ const settings = {
     this.gamesPlayedEver = [];
     const gamesPlayedEverString = localStorage.getItem("gamesPlayedEver")?.trim();
     if (gamesPlayedEverString && gamesPlayedEverString != "") this.gamesPlayedEver = gamesPlayedEverString.split(",");
-    console.log(this.gamesPlayedEver);
 
     //get pinned games
     this.pinnedGames = [];
