@@ -536,6 +536,7 @@ input {
 
 .emoji-icon {
   text-align: center;
+  line-height: 1;
   font-size: 30px;
   height: 30px;
   padding: 5px 0px;
